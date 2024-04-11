@@ -4,6 +4,7 @@ const SvgLogo = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     width={338.667}
     height={436}
+    minWidth={24}
     viewBox="0 0 254 327"
     fill="none"
     {...props}

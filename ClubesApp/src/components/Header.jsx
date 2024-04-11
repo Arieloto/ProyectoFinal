@@ -1,20 +1,19 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors'
 import SvgLogo from '../../assets/SvgLogo'
 
 
-
-
 const Header = ({title}) => {
+  const {height, width} = useWindowDimensions()
   return (
   
     <View style = {styles.container}>
      
-<SvgLogo width={40} height={"85%"} marginTop={5} fill={colors.teal200}/>   
+     <SvgLogo width={40} height={"85%"} marginTop={5} fill={colors.teal200}/>   
 
 
-      <Text style = {styles.text}>{title}</Text>
+      <Text style = {width> 360 ? styles.text : styles.textSmall}>{title}</Text>
 
 
     </View>
@@ -41,5 +40,27 @@ const styles = StyleSheet.create({
     fontFamily: 'Saira'
     
   },
+  textSmall: {
+    marginTop:20,
+    color: colors.platinum,
+    fontSize:18,
+    marginLeft:15,
+    fontFamily: 'Saira'
+    
+  },/*
+  logo: {
+    width: 40,
+    height:"85%",
+    marginTop:5, 
+      
+  },
+  logoSmall: {
+    width: 30,
+    height:"10%",
+    marginTop:5,     
+
+    
+  },*/
+  
   
 })
