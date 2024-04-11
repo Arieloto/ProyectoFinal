@@ -10,7 +10,7 @@ import Navigator from "./src/navigation/Navigator"
 
 const App = () => {
   const [fontsLoaded, fontError] = useFonts({
-    Josefin: require("./assets/JosefinSans-Regular.ttf"),
+    Saira: require("./assets/Saira-Medium.ttf"),
   })
 
   if (!fontsLoaded || fontError) {

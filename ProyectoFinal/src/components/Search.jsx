@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'tomato',
     fontSize: 14,
-    fontFamily: 'Josefin'
+    fontFamily: 'Saira'
   }
 })
