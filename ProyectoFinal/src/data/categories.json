@@ -1,22 +1,32 @@
 [
-    "smartphones",
-    "laptops",
-    "fragrances",
-    "skincare",
-    "groceries",
-    "home-decoration",
-    "furniture",
-    "tops",
-    "womens-dresses",
-    "womens-shoes",
-    "mens-shirts",
-    "mens-shoes",
-    "mens-watches",
-    "womens-watches",
-    "womens-bags",
-    "womens-jewellery",
-    "sunglasses",
-    "automotive",
-    "motorcycle",
-    "lighting"
-]
+    {
+      "id": "1",
+      "nombre": "Filamentos",
+      "img": "https://r2.easyimg.io/nu1yaj4rp/filamentos.png"
+    },
+    {
+      "id": "2",
+      "nombre": "Impresoras 3D",
+      "img": "https://r2.easyimg.io/nu1yaj4rp/impresoras3d.png"
+    },
+    {
+      "id": "3",
+      "nombre": "Accesorios",
+      "img": "https://r2.easyimg.io/nu1yaj4rp/softwares.png"
+    },
+    {
+      "id": "4",
+      "nombre": "Software",
+      "img": "https://r2.easyimg.io/nu1yaj4rp/software.png"
+    },
+    {
+      "id": "5",
+      "nombre": "Modelos 3D",
+      "img": "https://r2.easyimg.io/nu1yaj4rp/modelos3d.png"
+    },
+    {
+        "id": "6",
+        "nombre": "Maquinas CNC",
+        "img": "https://r2.easyimg.io/nu1yaj4rp/maquinascnc.png"
+      }
+  ]
