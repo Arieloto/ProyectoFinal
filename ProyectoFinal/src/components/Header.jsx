@@ -43,8 +43,10 @@ const styles = StyleSheet.create({
     
   },
   textSm: {
-    color: colors.teal200,
+    marginTop:20,
+    marginLeft:15,
+    color: colors.teal900,
     fontFamily: 'Saira',
-    fontSize: 16
+    fontSize: 20
   }
 })

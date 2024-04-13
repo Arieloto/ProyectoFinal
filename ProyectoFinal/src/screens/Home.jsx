@@ -8,8 +8,9 @@ const Home = ({ route, navigation}) => {
   const widthhome = useWindowDimensions().width
 
   return (
-    <View style={styles.flatListContainer}>
-      
+    <>
+    
+    <View style={styles.flatListContainer}>      
       <FlatGrid
       itemDimension= {(widthhome * 0.45)}
       
@@ -24,6 +25,8 @@ const Home = ({ route, navigation}) => {
         )}
       />
     </View>
+    <Text style={styles.categorias}>CATEGORÍAS</Text>
+    </>
   )
 }
 
@@ -31,15 +34,19 @@ export default Home
 
 const styles = StyleSheet.create({
   flatListContainer: {
-    flexDirection: "row",    
-    color: colors.platinum,  
-
+    flexDirection: "row",   
+    backgroundColor: colors.teal200, 
+    flex:1, 
   },gridView: {    
     flex: 1,
+    
   },
-  imgback:{
-    textAlign:"center",
-     zIndex:-1,
-     backgroundColor:"red"
-  },
+  categorias:{
+    
+    color: colors.platinum,
+    fontSize:24,
+    textAlign: "center",
+    fontFamily: 'Saira',
+    backgroundColor:colors.teal900
+  }
 })

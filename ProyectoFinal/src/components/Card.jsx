@@ -14,11 +14,8 @@ const Card = ({children, style}) => {
 export default Card
 
 const styles = StyleSheet.create({
-    container: {
-      justifyContent: 'flex-end',
-      borderRadius: 5,
-      padding: 10,
-      height: 150,
+    container: {    
+      borderRadius: 5,        
       backgroundColor: colors.teal600,
      
     },

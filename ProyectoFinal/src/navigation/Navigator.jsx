@@ -18,7 +18,7 @@ const Navigator = () => {
                 ({route}) => (
                     {
                         header: () => {
-                            return <Header title={route.name === "Home" ? "Categories" : route.name === "ItemListCategory" ? route.params.category : "Detail" }/>
+                            return <Header title={route.name === "Home" ? "A OTRA DIMENSIÓN" : route.name === "ItemListCategory" ? route.params.category : "Detalles" }/>
                         }
                     }
                 )
