@@ -4,13 +4,15 @@ import { colors } from "../constants/colors"
 import Card from "./Card"
 
 
+
+
 const CategoryItem = ({ image, category, navigation }) => {
 
  const widthhome = useWindowDimensions().width
 
   return (
     <View style={styles.container}>
-
+      
     <Card style = {widthhome >320 ? styles.card : styles.cardSm}>
       <Pressable onPress={()=>navigation.navigate('ItemListCategory', {category})}>      
       <Image source={{ uri: image }} style={styles.image} />
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: "6%",
     marginLeft: "5%",
-    marginRight: "10%",
+    marginRight: "5%",
     marginBottom :"5%",   
      },
   text: {

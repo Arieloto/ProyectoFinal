@@ -3,14 +3,19 @@ import { colors } from "../constants/colors"
 import CategoryItem from "../components/CategoryItem"
 import categories from "../data/categories.json"
 import { FlatGrid } from "react-native-super-grid"
+import Banner from "../../assets/Banner"
+
+
+
 
 const Home = ({ route, navigation}) => {
   const widthhome = useWindowDimensions().width
 
   return (
     <>
-    
+    <Banner/>
     <View style={styles.flatListContainer}>      
+    
       <FlatGrid
       itemDimension= {(widthhome * 0.45)}
       

@@ -8,6 +8,7 @@ import { useState, useEffect } from "react"
 const ItemListCategory = ({
   setCategorySelected = () => {},
   navigation,
+
   route
 }) => {
   const [keyWord, setKeyword] = useState("")
