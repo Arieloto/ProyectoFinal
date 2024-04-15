@@ -3,12 +3,11 @@
         "id": 1,
         "title": "Boquilla de impresora 3D de 1.0mm para CR-10S Pro, CR-10Max (4 unidades)",
         "description": "Boquilla para impresión 3D Creality de 1.0 milímetros, adecuada variados tipos de impresora 3D .Resistente al desgaste.",
-        "price": 549,
+        "price": 2500,
         "discountPercentage": 12.96,
         "stock": 94,
         "brand": "Creality®",
-        "category": "Accesorios",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+        "category": "Accesorios",  
         "images": [
             "https://www.pcfactory.cl/public/foto/39116/2_1000.jpg?t=1614094388000"]
     },
@@ -16,7 +15,7 @@
         "id": 2,
         "title": "Bloque disipador (B2) para impresoras 3D Ender 3 y Ender 3 Pro",
         "description": "Repuesto del bloque disipador que se encuentra al interior del cabezal del extrusor",
-        "price": 899,
+        "price": 3251,
         "discountPercentage": 17.94,
         "stock": 34,
         "brand": "Creality®",
@@ -25,28 +24,28 @@
     },
     {
         "id": 3,
-        "title": "Samsung Universe 9",
-        "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+        "title": "Correa dentada eje X para Ender 3 y Ender 3 Pro",
+        "description": "Reemplazo para la correa dentada del Eje X (La que mueve el cabezal del extrusor)",
         "price": 1249,
-        "discountPercentage": 15.46,   
-        "stock": 36,
-        "brand": "Samsung",
+        "discountPercentage": 15.46,
+        "stock": 24,
+        "brand": "Creality®",
         "category": "Accesorios",     
         "images": [
-            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+            "https://www.pcfactory.cl/public/foto/37911/1_1000.jpg?t=1709216565854"
         ]
     },
     {
         "id": 4,
-        "title": "OPPOF19",
-        "description": "OPPO F19 is officially announced on April 2021.",
-        "price": 280,
-        "discountPercentage": 17.91,
-        "stock": 123,
-        "brand": "OPPO",
+        "title": "Laca fiajdora cama caliente ",
+        "description": "3DLac es un spray adhesivo para la cama caliente. Desarrollado para múltiples modelos de impresoras 3D FDM. 400ml",
+        "price": 21.861,
+        "discountPercentage": 17.91,  
+        "stock": 14,      
+        "brand": "3DLAC",
         "category": "Accesorios",
         "images": [
-            "https://cdn.dummyjson.com/product-images/4/1.jpg"
+            "https://cdnx.jumpseller.com/todo-toner/image/18720100/LACA_FIJADORA_CAMA_CALIENTE_3DLAC.jpg?1651674852"
        
         ]
     },
@@ -83,12 +82,10 @@
         "title": "Samsung Galaxy Book",
         "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
         "price": 1499,
-        "discountPercentage": 4.15,
-        "rating": 4.25,
+        "discountPercentage": 4.15,       
         "stock": 50,
         "brand": "Samsung",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+        "category": "Filamentos",        
         "images": [
             "https://cdn.dummyjson.com/product-images/7/1.jpg"
         ]
@@ -98,12 +95,10 @@
         "title": "Microsoft Surface Laptop 4",
         "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
         "price": 1499,
-        "discountPercentage": 10.23,
-        "rating": 4.43,
+        "discountPercentage": 10.23,      
         "stock": 68,
         "brand": "Microsoft Surface",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+        "category": "Filamentos",  
         "images": [
             "https://cdn.dummyjson.com/product-images/8/1.jpg"
         ]
@@ -113,12 +108,10 @@
         "title": "Infinix INBOOK",
         "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
         "price": 1099,
-        "discountPercentage": 11.83,
-        "rating": 4.54,
+        "discountPercentage": 11.83,      
         "stock": 96,
         "brand": "Infinix",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+        "category": "Filamentos",        
         "images": [
             "https://cdn.dummyjson.com/product-images/9/1.jpg"
         ]
@@ -128,12 +121,10 @@
         "title": "HP Pavilion 15-DK1056WM",
         "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
         "price": 1099,
-        "discountPercentage": 6.18,
-        "rating": 4.43,
+        "discountPercentage": 6.18,       
         "stock": 89,
         "brand": "HP Pavilion",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+        "category": "Filamentos",        
         "images": [
             "https://cdn.dummyjson.com/product-images/10/1.jpg"
         ]
@@ -143,12 +134,10 @@
         "title": "perfume Oil",
         "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
         "price": 13,
-        "discountPercentage": 8.4,
-        "rating": 4.26,
+        "discountPercentage": 8.4,        
         "stock": 65,
         "brand": "Impression of Acqua Di Gio",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
+        "category": "Filamentos",       
         "images": [
             "https://cdn.dummyjson.com/product-images/11/1.jpg"
         ]
@@ -158,12 +147,10 @@
         "title": "Brown Perfume",
         "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
         "price": 40,
-        "discountPercentage": 15.66,
-        "rating": 4,
+        "discountPercentage": 15.66,        
         "stock": 52,
         "brand": "Royal_Mirage",
-        "category": "Filamentos",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
+        "category": "Filamentos",        
         "images": [
             "https://cdn.dummyjson.com/product-images/12/1.jpg"
         ]
@@ -173,12 +160,10 @@
         "title": "Fog Scent Xpressio Perfume",
         "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
         "price": 13,
-        "discountPercentage": 8.14,
-        "rating": 4.59,
+        "discountPercentage": 8.14,        
         "stock": 61,
         "brand": "Fog Scent Xpressio",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
+        "category": "Impresoras 3D",       
         "images": [
             "https://cdn.dummyjson.com/product-images/13/1.jpg"
         ]
@@ -188,12 +173,10 @@
         "title": "Non-Alcoholic Concentrated Perfume Oil",
         "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
         "price": 120,
-        "discountPercentage": 15.6,
-        "rating": 4.21,
+        "discountPercentage": 15.6,       
         "stock": 114,
         "brand": "Al Munakh",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
+        "category": "Impresoras 3D",       
         "images": [
             "https://cdn.dummyjson.com/product-images/14/1.jpg"
         ]
@@ -203,12 +186,10 @@
         "title": "Eau De Perfume Spray",
         "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
         "price": 30,
-        "discountPercentage": 10.99,
-        "rating": 4.7,
+        "discountPercentage": 10.99,        
         "stock": 105,
         "brand": "Lord - Al-Rehab",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
+        "category": "Impresoras 3D",       
         "images": [
             "https://cdn.dummyjson.com/product-images/15/1.jpg"
         ]
@@ -218,12 +199,10 @@
         "title": "Hyaluronic Acid Serum",
         "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
         "price": 19,
-        "discountPercentage": 13.31,
-        "rating": 4.83,
+        "discountPercentage": 13.31,       
         "stock": 110,
         "brand": "L'Oreal Paris",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
+        "category": "Impresoras 3D",       
         "images": [
             "https://cdn.dummyjson.com/product-images/16/1.png"
         ]
@@ -233,12 +212,10 @@
         "title": "Tree Oil 30ml",
         "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
         "price": 12,
-        "discountPercentage": 4.09,
-        "rating": 4.52,
+        "discountPercentage": 4.09,        
         "stock": 78,
         "brand": "Hemani Tea",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
+        "category": "Impresoras 3D",       
         "images": [
             "https://cdn.dummyjson.com/product-images/17/1.jpg"
         ]
@@ -248,12 +225,10 @@
         "title": "Oil Free Moisturizer 100ml",
         "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
         "price": 40,
-        "discountPercentage": 13.1,
-        "rating": 4.56,
+        "discountPercentage": 13.1,       
         "stock": 88,
         "brand": "Dermive",
-        "category": "Impresoras 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
+        "category": "Impresoras 3D",        
         "images": [
             "https://cdn.dummyjson.com/product-images/18/1.jpg"
         ]
@@ -263,12 +238,10 @@
         "title": "Skin Beauty Serum.",
         "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
         "price": 46,
-        "discountPercentage": 10.68,
-        "rating": 4.42,
+        "discountPercentage": 10.68,        
         "stock": 54,
         "brand": "ROREC White Rice",
-        "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
+        "category": "Software",        
         "images": [
             "https://cdn.dummyjson.com/product-images/19/1.jpg"
         ]
@@ -278,12 +251,10 @@
         "title": "Freckle Treatment Cream- 15gm",
         "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
         "price": 70,
-        "discountPercentage": 16.99,
-        "rating": 4.06,
+        "discountPercentage": 16.99,        
         "stock": 140,
         "brand": "Fair & Clear",
         "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/20/1.jpg"
         ]
@@ -294,11 +265,9 @@
         "description": "Fine quality Branded Product Keep in a cool and dry place",
         "price": 20,
         "discountPercentage": 4.81,
-        "rating": 4.44,
         "stock": 133,
         "brand": "Saaf & Khaas",
         "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/21/thumbnail.png",
         "images": [
             "https://cdn.dummyjson.com/product-images/21/1.png"
         ]
@@ -309,11 +278,9 @@
         "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
         "price": 14,
         "discountPercentage": 15.58,
-        "rating": 4.57,
         "stock": 146,
         "brand": "Bake Parlor Big",
         "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/22/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/22/1.jpg"
         ]
@@ -323,12 +290,10 @@
         "title": "Orange Essence Food Flavou",
         "description": "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
         "price": 14,
-        "discountPercentage": 8.04,
-        "rating": 4.85,
+        "discountPercentage": 8.04,        
         "stock": 26,
         "brand": "Baking Food Items",
         "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/23/1.jpg"
         ]
@@ -338,12 +303,10 @@
         "title": "cereals muesli fruit nuts",
         "description": "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
         "price": 46,
-        "discountPercentage": 16.8,
-        "rating": 4.94,
+        "discountPercentage": 16.8,        
         "stock": 113,
         "brand": "fauji",
         "category": "Software",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/24/1.jpg"
         ]
@@ -353,12 +316,10 @@
         "title": "Gulab Powder 50 Gram",
         "description": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
         "price": 70,
-        "discountPercentage": 13.58,
-        "rating": 4.87,
+        "discountPercentage": 13.58,        
         "stock": 47,
         "brand": "Dry Rose",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/25/1.png"
         ]
@@ -368,12 +329,10 @@
         "title": "Plant Hanger For Home",
         "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
         "price": 41,
-        "discountPercentage": 17.86,
-        "rating": 4.08,
+        "discountPercentage": 17.86,        
         "stock": 131,
         "brand": "Boho Decor",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/26/1.jpg"
         ]
@@ -383,12 +342,10 @@
         "title": "Flying Wooden Bird",
         "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
         "price": 51,
-        "discountPercentage": 15.58,
-        "rating": 4.41,
+        "discountPercentage": 15.58,        
         "stock": 17,
         "brand": "Flying Wooden",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/27/thumbnail.webp",
         "images": [
             "https://cdn.dummyjson.com/product-images/27/1.jpg"
         ]
@@ -399,11 +356,9 @@
         "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
         "price": 20,
         "discountPercentage": 16.49,
-        "rating": 4.82,
         "stock": 54,
         "brand": "LED Lights",
         "category": "home-decoration",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/28/1.jpg"
         ]
@@ -413,12 +368,10 @@
         "title": "Handcraft Chinese style",
         "description": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
         "price": 60,
-        "discountPercentage": 15.34,
-        "rating": 4.44,
+        "discountPercentage": 15.34,        
         "stock": 7,
         "brand": "luxury palace",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
         "images": [
             "https://cdn.dummyjson.com/product-images/29/1.jpg"
         ]
@@ -428,12 +381,10 @@
         "title": "Key Holder",
         "description": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
         "price": 30,
-        "discountPercentage": 2.92,
-        "rating": 4.92,
+        "discountPercentage": 2.92,        
         "stock": 54,
         "brand": "Golden",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/30/1.jpg"
         ]
@@ -443,12 +394,10 @@
         "title": "Mornadi Velvet Bed",
         "description": "Mornadi Velvet Bed Base with Headboard Slats Support Classic Style Bedroom Furniture Bed Set",
         "price": 40,
-        "discountPercentage": 17,
-        "rating": 4.16,
+        "discountPercentage": 17,        
         "stock": 140,
         "brand": "Furniture Bed Set",
         "category": "Modelos 3D",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/31/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/31/1.jpg"
         ]
@@ -458,12 +407,10 @@
         "title": "Sofa for Coffe Cafe",
         "description": "Ratttan Outdoor furniture Set Waterproof  Rattan Sofa for Coffe Cafe",
         "price": 50,
-        "discountPercentage": 15.59,
-        "rating": 4.74,
+        "discountPercentage": 15.59,        
         "stock": 30,
         "brand": "Ratttan Outdoor",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/32/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/32/1.jpg"
         ]
@@ -473,12 +420,10 @@
         "title": "3 Tier Corner Shelves",
         "description": "3 Tier Corner Shelves | 3 PCs Wall Mount Kitchen Shelf | Floating Bedroom Shelf",
         "price": 700,
-        "discountPercentage": 17,
-        "rating": 4.31,
+        "discountPercentage": 17,        
         "stock": 106,
         "brand": "Kitchen Shelf",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/33/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/33/1.jpg"
         ]
@@ -489,11 +434,9 @@
         "description": "V﻿ery good quality plastic table for multi purpose now in reasonable price",
         "price": 50,
         "discountPercentage": 4,
-        "rating": 4.01,
         "stock": 136,
         "brand": "Multi Purpose",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/34/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/34/1.jpg"
         ]
@@ -503,12 +446,10 @@
         "title": "3 DOOR PORTABLE",
         "description": "Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe",
         "price": 41,
-        "discountPercentage": 7.98,
-        "rating": 4.06,
+        "discountPercentage": 7.98,        
         "stock": 68,
         "brand": "AmnaMart",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/35/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/35/1.jpg"
         ]
@@ -518,12 +459,10 @@
         "title": "Sleeve Shirt Womens",
         "description": "Cotton Solid Color Professional Wear Sleeve Shirt Womens Work Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized",
         "price": 90,
-        "discountPercentage": 10.89,
-        "rating": 4.26,
+        "discountPercentage": 10.89,        
         "stock": 39,
         "brand": "Professional Wear",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/36/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/36/1.jpg"
         ]
@@ -533,12 +472,10 @@
         "title": "ank Tops for Womens/Girls",
         "description": "PACK OF 3 CAMISOLES ,VERY COMFORTABLE SOFT COTTON STUFF, COMFORTABLE IN ALL FOUR SEASONS",
         "price": 50,
-        "discountPercentage": 12.05,
-        "rating": 4.52,
+        "discountPercentage": 12.05,        
         "stock": 107,
         "brand": "Soft Cotton",
         "category": "Maquinas CNC",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/37/thumbnail.jpg",
         "images": [
             "https://cdn.dummyjson.com/product-images/37/1.jpg"
         ]

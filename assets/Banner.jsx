@@ -11,9 +11,9 @@ const Banner = () => {
   
   useEffect(() => {
     const getTopDiscountProducts = () => {
-      // Ordenar los productos por su propiedad discountPercentage en orden descendente
+      // Ordenar los productos por su propiedad descuento en orden descendente
       const sortedProducts = producto.sort((a, b) => b.discountPercentage - a.discountPercentage);
-      // Seleccionar los primeros 5 productos después de ordenar
+      // Seleccionar los primeros 5 productos en oferta
       const selectedProducts = sortedProducts.slice(0, 5);
     
       return selectedProducts;
