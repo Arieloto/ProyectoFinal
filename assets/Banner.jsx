@@ -15,7 +15,7 @@ const Banner = () => {
       const sortedProducts = producto.sort((a, b) => b.discountPercentage - a.discountPercentage);
       // Seleccionar los primeros 5 productos después de ordenar
       const selectedProducts = sortedProducts.slice(0, 5);
-      console.log(selectedProducts);
+    
       return selectedProducts;
     };
 
