@@ -8,6 +8,7 @@ import {
 } from "react-native"
 import React, { useEffect, useState } from "react"
 import allProducts from "../data/products.json"
+import { colors } from "../constants/colors";
 
 const ItemDetail = ({ route, navigation }) => {
 
@@ -34,8 +35,8 @@ const ItemDetail = ({ route, navigation }) => {
   }, [idSelected])
 
   return (
-    <View>
-      <Button onPress={() => navigation.goBack()} title="Go back" />
+    <View style={styles.container}>
+      <Button onPress={() => navigation.goBack()} title="Volver atrás" />
       {product ? (
         <View
           style={
@@ -50,10 +51,11 @@ const ItemDetail = ({ route, navigation }) => {
             resizeMode="cover"
           />
           <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
-            <Text>{product.title}</Text>
-            <Text>{product.description}</Text>
+            <Text style={styles.text} >{product.title}</Text>
+            <Text style={styles.text} >{product.description}</Text>
+            
             <Text style={styles.price}>${product.price}</Text>
-            <Button title="Add cart"></Button>
+            <Button title="Agregar al carrito"></Button>
           </View>
         </View>
       ) : null}
@@ -64,11 +66,17 @@ const ItemDetail = ({ route, navigation }) => {
 export default ItemDetail
 
 const styles = StyleSheet.create({
+  container: {
+  flex:1,
+    backgroundColor:colors.teal200,
+    
+  },
   mainContainer: {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
     padding: 10,
+    backgroundColor:colors.teal200,
   },
   mainContainerLandscape: {
     flexDirection: "row",
@@ -76,6 +84,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     padding: 10,
     gap: 10,
+ 
   },
   image: {
     width: '100%',
@@ -86,18 +95,26 @@ const styles = StyleSheet.create({
     height: 200
   },
   textContainer: {
-    flexDirection: "column",
+    flexDirection: "column",   
   },
 
   textContainerLandscape: {
+   
     width: '50%',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'start',
     gap: 10,
+
   },
   price: {
+    fontFamily: 'Saira',
+    marginTop:20,
+    marginBottom:20,
     textAlign: 'right',
-    width: '100%'
+    width: '100%',
+  },
+  text:{fontFamily: 'Saira',
+
   }
 })

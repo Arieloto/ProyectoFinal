@@ -1,9 +1,10 @@
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, Text, View,Dimensions } from "react-native"
 import { colors } from "../constants/colors"
 import products from "../data/products.json"
 import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
 import { useState, useEffect } from "react"
+import { FlatGrid } from "react-native-super-grid"
 
 const ItemListCategory = ({
   setCategorySelected = () => {},
@@ -53,7 +54,11 @@ const ItemListCategory = ({
         onSearch={setKeyword}
         goBack={() => navigation.goBack()}
       />
-      <FlatList
+      <FlatGrid
+       itemDimension= {Dimensions.get('window').width / 3}
+      
+       style={styles.gridView}
+         showsVerticalScrollIndicator={false}
         data={productsFiltered}
         renderItem={({ item }) => (
           <ProductItem product={item} navigation={navigation}/>
@@ -69,7 +74,7 @@ export default ItemListCategory
 const styles = StyleSheet.create({
   flatListContainer: {
     width: "100%",
-    backgroundColor: colors.teal400,
+    backgroundColor: colors.teal200,
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
@@ -77,4 +82,10 @@ const styles = StyleSheet.create({
     padding: 10,
   
   },
+  gridView: { 
+
+    
+   
+  },
+  
 })

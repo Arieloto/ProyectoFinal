@@ -14,7 +14,7 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         <TextInput
           style={styles.input}
           placeholder="Search..." 
-          placeholderTextColor={colors.platinum}         
+          placeholderTextColor={colors.teal900}         
           value={keyword}
           onChangeText={setKeyword}
           />
@@ -22,10 +22,10 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
 
       </View>
       <Pressable onPress={() => onSearch(keyword)}>
-        <Ionicons name="search" size={24} color= {colors.platinum} />
+        <Ionicons name="search" size={24} color= {colors.teal900} />
       </Pressable>
       <Pressable onPress={() => setKeyword("")}>
-        <Entypo name="erase" size={24} color={colors.platinum} />
+        <Entypo name="erase" size={24} color={colors.teal900} />
       </Pressable>
       <Pressable onPress={goBack}>
         <Ionicons name="arrow-back" size={24} color={colors.teal900} />
@@ -48,12 +48,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'start',
     gap: 4,
-    width: '70%',
+    width: '62%',
   },
   input: {
     padding: 8,
     fontSize: 18,
-    backgroundColor: colors.teal400,
+    backgroundColor: colors.teal200,
     color: colors.platinum,
     borderRadius: 10,
   },

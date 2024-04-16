@@ -29,24 +29,30 @@ export default ProductItem
 
 const styles = StyleSheet.create({
   image: {
-    height: 120,
-    width: "30%",
-    borderRadius: 8,
+    height: 160,
+    width: "100%",
+    overflow:"hidden",
+   
+    
+    
   },
   additionalStylesCard: {
-    height: 120,
-    width: 300,
-    margin: 10,
+    height: 200, 
+    overflow:"hidden",
+    margin: 2,
   },
   textCategory: {
-    width: "70%",
-    color: colors.teal200,
+    width: "100%",
+    height: 60,
+    color: colors.platinum,
+    padding:5,
+    textAlign:"center"
   },
   pressable: {
     width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
-    paddingLeft: 10,
+    
   },
 })
