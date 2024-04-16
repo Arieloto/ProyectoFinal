@@ -1,23 +1,22 @@
-import {StyleSheet, Text, View , useWindowDimensions,  } from "react-native"
+import {StyleSheet, Text, View , Dimensions } from "react-native"
 import { colors } from "../constants/colors"
 import CategoryItem from "../components/CategoryItem"
 import categories from "../data/categories.json"
 import { FlatGrid } from "react-native-super-grid"
-import Banner from "../../assets/Banner"
-
-
-
+import Banner from "../components/Banner"
 
 const Home = ({ route, navigation}) => {
-  const widthhome = useWindowDimensions().width
+
 
   return (
-    <>
-    <Banner/>
-    <View style={styles.flatListContainer}>      
     
+    
+    <View style={styles.container}>  
+   
+    <Banner/>
+
       <FlatGrid
-      itemDimension= {(widthhome * 0.45)}
+      itemDimension= {Dimensions.get('window').width / 3}
       
       style={styles.gridView}
         showsVerticalScrollIndicator={false}
@@ -30,21 +29,20 @@ const Home = ({ route, navigation}) => {
         )}
       />
     </View>
-    <Text style={styles.categorias}>CATEGORÍAS</Text>
-    </>
+   
+   
   )
 }
 
 export default Home
 
 const styles = StyleSheet.create({
-  flatListContainer: {
-    flexDirection: "row",   
+  container: {   
+    flexDirection: "column",   
     backgroundColor: colors.teal200, 
-    flex:1, 
-  },gridView: {    
-    flex: 1,
-    
+    flex: 1,     
+  },
+  gridView: { flex: 1,
   },
   categorias:{
     

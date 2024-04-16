@@ -39,7 +39,7 @@
         "id": 4,
         "title": "Laca fiajdora cama caliente ",
         "description": "3DLac es un spray adhesivo para la cama caliente. Desarrollado para múltiples modelos de impresoras 3D FDM. 400ml",
-        "price": 21.861,
+        "price": 21861,
         "discountPercentage": 17.91,  
         "stock": 14,      
         "brand": "3DLAC",
@@ -133,7 +133,7 @@
         "id": 11,
         "title": "FILAMENTO PETG TRANSPARENTE VERDE 1KG",
         "description": "Filamento PETG  de 1 kilo (aproximadamente 350 metros) COLOR TRANSPARENTE VERDE  Puede ser ocupado en Impresoras 3D o Lápices de impresión ",
-        "price": 13,
+        "price": 13500,
         "discountPercentage": 8.4,        
         "stock": 65,
         "brand": "SUNLU",
@@ -474,10 +474,10 @@
         "price": 7790000,
         "discountPercentage": 12.05,        
         "stock": 107,
-        "brand": "Cimech3d",
-        "category": "Maquinas CNC",
+        "brand":"Cimech3d",
+        "category":"Maquinas CNC",
         "images": [
-            "https://www.cimech3d.cl/wp-content/uploads/2022/10/CNC-Plancha-Completa1-600x600.jpg"
+        "https://www.cimech3d.cl/wp-content/uploads/2022/10/CNC-Plancha-Completa1-600x600.jpg"
         ]
     }
 ]
