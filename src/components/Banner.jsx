@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 const Banner = () => {
   const navigation = useNavigation();
   const [topDiscountProducts, setTopDiscountProducts] = useState([]);
-  const widthbanner = useWindowDimensions().width
+ const widthbanner = useWindowDimensions().width
   useEffect(() => {
     const getTopDiscountProducts = () => {
       // Ordenar los productos por su propiedad descuento en orden descendente
@@ -23,8 +23,8 @@ const Banner = () => {
   }, []);
     
   return (
-    <View style={styles.container}>
-      <Swiper style={styles.wrapper}
+    <View style={styles.container} width={widthbanner}>
+      <Swiper style={styles.wrapper}  
        showsPagination={false}
        autoplay={true}
        showsButtons={false}
@@ -32,7 +32,7 @@ const Banner = () => {
       
        >
         {topDiscountProducts.map((product, index) => (
-          <View style={styles.slide} key={index}>
+          <View style={styles.slide}  key={index}>
             <Text style={styles.discount}>-%{product.discountPercentage}</Text>
             <Text style={styles.price}>Oferta:${product.price}</Text>
             <Pressable
@@ -43,7 +43,7 @@ const Banner = () => {
             >             
               <Image
                 resizeMode="cover"
-                style={styles.image } width={widthbanner}
+                style={styles.image } 
                 source={{ uri: product.images[0] }}
               />
               
@@ -62,26 +62,30 @@ export default Banner;
 
 const styles = StyleSheet.create({
   container: {
+    
     backgroundColor:colors.teal400,    
     paddingTop: 5,
     paddingBottom: 5,
-    height:250,
+    height:250,  
+    
       },
   wrapper: {  
+    
   },
   slide: { 
     
     justifyContent: "center",
-    alignItems: "center",    
+     
   },
   image: {   
-    height: "100%",       
+    height: 240,
+          
   },
   textCategory: {
     color: colors.teal900,
     paddingTop: 5, 
     position: 'absolute',
-    bottom: 0,
+    bottom: 10,
     fontFamily: 'Saira',    
     paddingVertical: 2,
     paddingHorizontal: 5,
@@ -92,12 +96,12 @@ const styles = StyleSheet.create({
   discount:{
     zIndex:1,
     position: 'absolute',
-    top: 10, 
-    right: 10, 
+    top: "2%", 
+    right: "5%", 
     backgroundColor:colors.teal200, 
     borderRadius: 20, 
-    paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingVertical: 1,
+    paddingHorizontal: 1,
     fontFamily: 'Saira',
   
     
@@ -105,8 +109,8 @@ const styles = StyleSheet.create({
   price:{
     zIndex:1,
     position: 'absolute',
-    top: 40, 
-    right: 10, 
+    top: "12%", 
+    right: "5%", 
     backgroundColor:colors.teal200, 
     borderRadius: 20, 
     paddingVertical: 5,

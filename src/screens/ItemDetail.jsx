@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useState } from "react"
 import allProducts from "../data/products.json"
 import { colors } from "../constants/colors";
+import Counter from "../components/Counter"
 
 const ItemDetail = ({ route, navigation }) => {
 
@@ -57,6 +58,8 @@ const ItemDetail = ({ route, navigation }) => {
             <Text style={styles.price}>${product.price}</Text>
             <Button title="Agregar al carrito"></Button>
           </View>
+
+          <Counter/>
         </View>
       ) : null}
     </View>

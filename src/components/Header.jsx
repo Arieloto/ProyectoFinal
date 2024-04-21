@@ -2,9 +2,12 @@ import { StyleSheet, Text, View, useWindowDimensions } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors'
 import SvgLogo from '../../assets/SvgLogo'
+import { useSelector } from 'react-redux'
 
-const Header = ({title}) => {
+const Header = ({route}) => {
   const {height, width} = useWindowDimensions()
+  const categorySelected = useSelector(state => state.shop.value.categorySelected)
+
 
 const widthlogo = useWindowDimensions().width <= 320 ? 20 : 40;
 const heightlogo = useWindowDimensions().width <= 320 ? "75%" : "85%";
@@ -18,7 +21,7 @@ const filllogo = useWindowDimensions().width <= 320 ? colors.teal200 : colors.te
      
     <SvgLogo width={widthlogo} height={heightlogo} marginTop={marginToplogo} fill={filllogo}/>
 
-      <Text style = {width > 360 ? styles.text: styles.textSm}>{title}</Text>
+      <Text style = {width > 360 ? styles.text: styles.textSm}>{route.name }</Text>
     </View>
   )
 }

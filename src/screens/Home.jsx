@@ -16,7 +16,7 @@ const Home = ({ route, navigation}) => {
     <Banner/>
 
       <FlatGrid
-      itemDimension= {Dimensions.get('window').width / 3}
+      itemDimension= {Dimensions.get('window').width /3}
       
       style={styles.gridView}
         showsVerticalScrollIndicator={false}

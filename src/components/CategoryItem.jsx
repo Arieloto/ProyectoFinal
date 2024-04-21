@@ -3,18 +3,26 @@ import React from "react"
 import { colors } from "../constants/colors"
 import Card from "./Card"
 
+import {useDispatch, useSelector} from 'react-redux'
+import { setCategorySelected } from "../features/Shop/shopSlice"
 
 
 
 const CategoryItem = ({ image, category, navigation }) => {
 
+  const dispatch = useDispatch()
+
+  const handleNavigate = () => {
+    dispatch(setCategorySelected(category))
+    navigation.navigate('ItemListCategory', {category})
+  }
  const widthhome = useWindowDimensions().width
 
   return (
     <View style={styles.container}>
       
     <Card style = {widthhome >320 ? styles.card : styles.cardSm}>
-      <Pressable onPress={()=>navigation.navigate('ItemListCategory', {category})}>      
+    <Pressable onPress={handleNavigate}>     
       <Image source={{ uri: image }} style={styles.image} />
       <Text style={styles.text}>{category}</Text> 
         
