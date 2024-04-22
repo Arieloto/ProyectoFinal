@@ -56,7 +56,7 @@ const ItemDetail = ({ route, navigation }) => {
             <Text style={styles.text} >{product.description}</Text>
             
             <Text style={styles.price}>${product.price}</Text>
-            <Button title="Agregar al carrito"></Button>
+            
           </View>
 
           <Counter/>

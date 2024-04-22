@@ -3,6 +3,7 @@ import React from "react"
 import Card from "./Card"
 import { colors } from "../constants/colors"
 
+
 const ProductItem = ({
   product,
   setProductSelected = () => {},
@@ -14,7 +15,7 @@ const ProductItem = ({
         style={styles.pressable}
         onPress={() => navigation.navigate('ItemDetail', {productId: product.id})}
       >
-        <Text style={styles.textCategory}>{product.title}</Text>
+        <Text style={styles.textCategory}>{product.title}</Text>        
         <Image
           resizeMode="cover"
           style={styles.image}

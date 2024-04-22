@@ -4,14 +4,15 @@ import { colors } from '../constants/colors'
 import SvgLogo from '../../assets/SvgLogo'
 import { useSelector } from 'react-redux'
 
-const Header = ({route}) => {
+
+const Header = ({route,title}) => {
   const {height, width} = useWindowDimensions()
   const categorySelected = useSelector(state => state.shop.value.categorySelected)
-
+  console.log(categorySelected)
+  
 
 const widthlogo = useWindowDimensions().width <= 320 ? 20 : 40;
 const heightlogo = useWindowDimensions().width <= 320 ? "75%" : "85%";
-const marginToplogo = useWindowDimensions().width <= 320 ? 4 : 5;
 const filllogo = useWindowDimensions().width <= 320 ? colors.teal200 : colors.teal200;
 
 
@@ -19,9 +20,9 @@ const filllogo = useWindowDimensions().width <= 320 ? colors.teal200 : colors.te
     
     <View style = {styles.container}>
      
-    <SvgLogo width={widthlogo} height={heightlogo} marginTop={marginToplogo} fill={filllogo}/>
+    <SvgLogo width={widthlogo} height={heightlogo}  fill={filllogo}/>
 
-      <Text style = {width > 360 ? styles.text: styles.textSm}>{route.name }</Text>
+      <Text style = {width > 360 ? styles.text: styles.textSm}>{route.name}</Text>
     </View>
   )
 }

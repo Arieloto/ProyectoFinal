@@ -15,12 +15,17 @@ const HomeStackNavigator = () => {
                 headerShown: false,
             }}
         >
-            <Stack.Screen component={Home} name="Home" />
+            <Stack.Screen 
+            component={Home} 
+            name="Home" />
+            
             <Stack.Screen
                 component={ItemListCategory}
                 name="ItemListCategory"
             />
-            <Stack.Screen component={ItemDetail} name="ItemDetail" />
+            <Stack.Screen 
+            component={ItemDetail}
+             name="ItemDetail" />
         </Stack.Navigator>
     )
 }

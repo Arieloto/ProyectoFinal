@@ -5,6 +5,7 @@ import categories from "../data/categories.json"
 import { FlatGrid } from "react-native-super-grid"
 import Banner from "../components/Banner"
 
+
 const Home = ({ route, navigation}) => {
 
 
@@ -12,7 +13,7 @@ const Home = ({ route, navigation}) => {
     
     
     <View style={styles.container}>  
-   
+    
     <Banner/>
 
       <FlatGrid

@@ -9,18 +9,20 @@ import Header from "../components/Header"
 import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 
+
+
 const Tab = createBottomTabNavigator()
 
 const BottomTabNavigator = () => {
     return (
-        <Tab.Navigator
-            screenOptions={({ route }) => ({
-                header: () => {
-                    return <Header route={route} />
-                },
-                tabBarShowLabel: false,
-                tabBarStyle: styles.tabBar,
-            })}
+        <Tab.Navigator        
+        screenOptions={({ route }) => ({
+            header: () => {
+                return <Header route={route} />
+            },
+            tabBarShowLabel: false,
+            tabBarStyle: styles.tabBar,
+        })}
         >
             <Tab.Screen
                 name="Shop"
@@ -69,23 +71,7 @@ const BottomTabNavigator = () => {
                     },
                 }}
             />
-            {/* <Tab.Screen
-                name="Orders"
-                component={OrdersTemp}
-                options={{
-                    tabBarIcon: ({ focused }) => {
-                        return (
-                            <View>
-                                <Ionicons
-                                    name="receipt"
-                                    size={24}
-                                    color={focused ? "black" : colors.teal600}
-                                />
-                            </View>
-                        )
-                    },
-                }}
-            /> */}
+            
         </Tab.Navigator>
     )
 }
@@ -95,7 +81,7 @@ export default BottomTabNavigator
 const styles = StyleSheet.create({
     tabBar: {
         backgroundColor: colors.teal200,
-        shadowColor: "black",
+        boxShadow: "black",
         elevation: 4,
         borderRadius: 15,
         height: 60,
