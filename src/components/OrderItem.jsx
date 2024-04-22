@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "Josefin",
+        fontFamily: "Saira",
         fontSize: 17,
         color: "black",
     },
     text2: {
-        fontFamily: "Josefin",
+        fontFamily: "Saira",
         fontSize: 19,
         color: "gray",
     },
