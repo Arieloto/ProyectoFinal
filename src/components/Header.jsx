@@ -8,8 +8,10 @@ import { useSelector } from 'react-redux'
 const Header = ({route,title}) => {
   const {height, width} = useWindowDimensions()
   const categorySelected = useSelector(state => state.shop.value.categorySelected)
-  console.log(categorySelected)
-  
+
+ const titulo = (route.name === 'Shop') ? "A OTRA DIMENSION" :
+  (route.name === 'Cart' || route.name === 'Orders') ? route.name :
+  categorySelected; 
 
 const widthlogo = useWindowDimensions().width <= 320 ? 20 : 40;
 const heightlogo = useWindowDimensions().width <= 320 ? "75%" : "85%";
@@ -22,7 +24,7 @@ const filllogo = useWindowDimensions().width <= 320 ? colors.teal200 : colors.te
      
     <SvgLogo width={widthlogo} height={heightlogo}  fill={filllogo}/>
 
-      <Text style = {width > 360 ? styles.text: styles.textSm}>{route.name}</Text>
+      <Text style = {width > 360 ? styles.text: styles.textSm}>{titulo}</Text>
     </View>
   )
 }

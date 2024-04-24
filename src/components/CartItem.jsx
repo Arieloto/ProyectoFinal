@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "Saira",
+        fontFamily: "Josefin",
         fontSize: 19,
         color: colors.teal400,
     },
     text2: {
-        fontFamily: "Saira",
+        fontFamily: "Josefin",
         fontSize: 14,
         color: colors.teal600,
     },

@@ -1,13 +1,17 @@
-import {StyleSheet, Text, View , Dimensions } from "react-native"
+import {StyleSheet, Text, View , Dimensions,FlatList } from "react-native"
 import { colors } from "../constants/colors"
 import CategoryItem from "../components/CategoryItem"
-import categories from "../data/categories.json"
+//import categories from "../data/categories.json"
 import { FlatGrid } from "react-native-super-grid"
 import Banner from "../components/Banner"
+import { useGetCategoriesQuery } from "../services/shopService"
+
 
 
 const Home = ({ route, navigation}) => {
+const {data:categories, error, isLoading} = useGetCategoriesQuery()
 
+console.log(categories)
 
   return (
     
@@ -16,10 +20,11 @@ const Home = ({ route, navigation}) => {
     
     <Banner/>
 
-      <FlatGrid
+      <FlatList 
       itemDimension= {Dimensions.get('window').width /3}
       
       style={styles.gridView}
+      numColumns={2}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id.toString()}
         data={categories}       
@@ -44,6 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,     
   },
   gridView: { flex: 1,
+    
   },
   categorias:{
     

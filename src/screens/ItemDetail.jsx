@@ -7,17 +7,24 @@ import {
   useWindowDimensions
 } from "react-native"
 import React, { useEffect, useState } from "react"
-import allProducts from "../data/products.json"
-import { colors } from "../constants/colors";
-import Counter from "../components/Counter"
+// import allProducts from "../data/products.json"
+import { useGetProductByIdQuery } from "../services/shopService"
+import { useDispatch } from "react-redux"
+import { addCartItem } from "../features/Cart/cartSlice"
+import { colors } from "../constants/colors"
 
 const ItemDetail = ({ route, navigation }) => {
 
-  const [product, setProduct] = useState(null)
+  const dispatch = useDispatch()
+  // const [product, setProduct] = useState(null)
   const [orientation, setOrientation] = useState("portrait")
   const { width, height } = useWindowDimensions()
 
   const {productId: idSelected} = route.params
+
+  const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
+
+  console.log(product);
 
   //Landscape = horizontal
   //Portrait = vertical
@@ -27,17 +34,21 @@ const ItemDetail = ({ route, navigation }) => {
     else setOrientation("portrait")
   }, [width, height])
 
-  useEffect(() => {
+  /* useEffect(() => {
     //Encontrar el producto por su id
     const productSelected = allProducts.find(
       (product) => product.id === idSelected
     )
     setProduct(productSelected)
-  }, [idSelected])
+  }, [idSelected]) */
+
+  const handleAddCart = () => {
+    dispatch(addCartItem({...product, quantity: 1}))
+  }
 
   return (
-    <View style={styles.container}>
-      <Button onPress={() => navigation.goBack()} title="Volver atrás" />
+    <View>
+      <Button onPress={() => navigation.goBack()} title="Go back" />
       {product ? (
         <View
           style={
@@ -52,14 +63,11 @@ const ItemDetail = ({ route, navigation }) => {
             resizeMode="cover"
           />
           <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
-            <Text style={styles.text} >{product.title}</Text>
-            <Text style={styles.text} >{product.description}</Text>
-            
+            <Text>{product.title}</Text>
+            <Text>{product.description}</Text>
             <Text style={styles.price}>${product.price}</Text>
-            
+            <Button title="Add cart" onPress={handleAddCart}></Button>
           </View>
-
-          <Counter/>
         </View>
       ) : null}
     </View>

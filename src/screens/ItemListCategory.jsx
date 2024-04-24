@@ -1,15 +1,14 @@
-import { FlatList, StyleSheet, Text, View,Dimensions } from "react-native"
+import { FlatList, StyleSheet, Text, View } from "react-native"
 import { colors } from "../constants/colors"
-import products from "../data/products.json"
+// import products from "../data/products.json"
 import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
 import { useState, useEffect } from "react"
-import { FlatGrid } from "react-native-super-grid"
+import { useGetProductsByCategoryQuery } from "../services/shopService"
 
 const ItemListCategory = ({
   setCategorySelected = () => {},
   navigation,
-
   route
 }) => {
   const [keyWord, setKeyword] = useState("")
@@ -17,6 +16,13 @@ const ItemListCategory = ({
   const [error, setError] = useState("")
 
   const {category: categorySelected} = route.params
+
+  const {data: productsFetched, error: errorFromFetch, isLoading} = useGetProductsByCategoryQuery(categorySelected)
+
+  console.log(productsFetched);
+  /* console.log(errorFromFetch);
+  console.log(isLoading); */
+
   useEffect(() => {
     //Products filtered by category
 
@@ -36,16 +42,18 @@ const ItemListCategory = ({
       return
     }
 
-    const productsPrefiltered = products.filter(
+    /* const productsPrefiltered = products.filter(
       (product) => product.category === categorySelected
-    )
+    ) */
     //Product filtered by name
-    const productsFilter = productsPrefiltered.filter((product) =>
-      product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())
-    )
-    setProductsFiltered(productsFilter)
-    setError("")
-  }, [keyWord, categorySelected])
+    if (!isLoading) {
+      const productsFilter = productsFetched.filter((product) =>
+        product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())
+      )
+      setProductsFiltered(productsFilter)
+      setError("")
+    }
+  }, [keyWord, categorySelected, productsFetched, isLoading])
 
   return (
     <View style={styles.flatListContainer}>
@@ -54,11 +62,9 @@ const ItemListCategory = ({
         onSearch={setKeyword}
         goBack={() => navigation.goBack()}
       />
-      <FlatGrid
-       itemDimension= {Dimensions.get('window').width / 3}
-      
-       style={styles.gridView}
-         showsVerticalScrollIndicator={false}
+      <FlatList
+      style={styles.gridView}
+      numColumns={2}
         data={productsFiltered}
         renderItem={({ item }) => (
           <ProductItem product={item} navigation={navigation}/>
@@ -73,19 +79,19 @@ export default ItemListCategory
 
 const styles = StyleSheet.create({
   flatListContainer: {
-    width: "100%",
-    backgroundColor: colors.teal200,
+    flexDirection: "column",   
+    backgroundColor: colors.teal200, 
+    flex: 1,     
+    /*width: "100%",
+    backgroundColor: colors.teal400,
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10,
-  
+    padding: 10,*/
   },
-  gridView: { 
-
+  gridView: { flex: 1,
     
-   
+    
   },
-  
 })
