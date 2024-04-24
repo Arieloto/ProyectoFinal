@@ -7,7 +7,7 @@ import { decrement, increment, incrementByAmount, reset } from "../features/Coun
 const Counter = () => {
     const count = useSelector(state => state.counter.value)
     const dispatch = useDispatch()
-    const [inputToAdd, setInputToAdd] = useState(null);
+    const [inputToAdd, setInputToAdd] = useState("");
     // let count = 0
     
    console.log(count)

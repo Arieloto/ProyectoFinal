@@ -54,7 +54,7 @@ console.log(countValue)
 
   return (
     <View>
-      <Pressable onPress={() => navigation.goBack()} title="Go back" > 
+      <Pressable style={styles.press} onPress={() => navigation.goBack()} title="Go back" > 
       <MaterialCommunityIcons  name="backburger" size={24} color={colors.teal900} />
       </Pressable>
       {product ? (
@@ -144,6 +144,9 @@ const styles = StyleSheet.create({
     marginBottom:20,
     textAlign: 'right',
     width: '100%',
+  },
+  press: {
+backgroundColor: colors.teal200,
   },
   text:{fontFamily: 'Saira',
 
