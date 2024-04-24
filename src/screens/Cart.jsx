@@ -1,52 +1,45 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native"
+import { FlatList, Pressable, StyleSheet, Text, View, useState } from "react-native"
 import React from "react"
 // import CartData from "../data/cart.json"
 import CartItem from "../components/CartItem"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { removeCartItem } from "../features/Cart/cartSlice"
 // import { useSelector } from "react-redux"
 // import { usePostOrderMutation } from "../services/shopService"
 
 const Cart = () => {
-    // console.log(CartData);
-
+  
     const {items: CartData, total} = useSelector(state => state.cart.value)
-    /* const { items: cartItems, total } = useSelector((state) => state.cart.value)
-    const [triggerPost, result] = usePostOrderMutation()
+   
+    const dispatch = useDispatch();
 
-    console.log(cartItems)
-    console.log(result) */
+    const handleRemoveItem = (productId) => {
+        dispatch(removeCartItem({ id: productId }));
+    };
 
-    /* let total = 0
-    for (const currentItem of CartData) {
-        console.log(currentItem.id);
-        total += currentItem.price * currentItem.quantity
-    } */
-
-    /* onConfirm = () => {
-        triggerPost({
-            total,
-            items: cartItems,
-            user: "userLoggedId",
-            date: new Date().toLocaleString(),
-        })
-    } */
 
     return (
-        <View style={styles.container}>
-            <FlatList
+       <><View style={styles.container}>
+             {CartData.length === 0 ? (
+        <Text>Por favor ingrese productos al carrito</Text>
+    ) : ( <FlatList
                 data={CartData}
                 keyExtractor={(pepe) => pepe.id}
                 renderItem={({ item }) => {
-                    return <CartItem cartItem={item} />
+                return <CartItem cartItem={item} onDelete={() => handleRemoveItem(item.id)} /> // Pasa la función onDelete
                 }}
             />
+            
+            
+            )}
             <View style={styles.totalContainer}>
                 <Pressable onPress={() => {}}>
                     <Text>Confirm</Text>
                 </Pressable>
                 <Text>Total: ${total}</Text>
             </View>
-        </View>
+       </View>
+       </> 
     )
 }
 

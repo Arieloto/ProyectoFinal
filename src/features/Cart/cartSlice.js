@@ -51,7 +51,19 @@ export const cartSlice = createSlice({
             }
         },
         removeCartItem: (state, { payload }) => {
-            //Logic to remove product
+                        //Logic to remove product
+                        state.value.items = state.value.items.filter(item => item.id !== payload.id);
+            const total = state.value.items.reduce(
+                (acc, currentItem) =>
+                    (acc += currentItem.price * currentItem.quantity),
+                0
+            );
+            state.value = {
+                ...state.value,
+                total,
+                updatedAt: new Date().toLocaleString(),
+            };
+        
         },
     },
 })

@@ -1,6 +1,7 @@
 import {
   Button,
   Image,
+  Pressable,
   StyleSheet,
   Text,
   View,
@@ -12,6 +13,10 @@ import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
 import { colors } from "../constants/colors"
+import {MaterialCommunityIcons} from '@expo/vector-icons'
+import {MaterialIcons} from '@expo/vector-icons'
+import Counter from "../components/Counter"
+import { useSelector } from "react-redux";
 
 const ItemDetail = ({ route, navigation }) => {
 
@@ -23,9 +28,10 @@ const ItemDetail = ({ route, navigation }) => {
   const {productId: idSelected} = route.params
 
   const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
+  
+  const countValue = useSelector(state => state.counter.value);
 
-  console.log(product);
-
+console.log(countValue)
   //Landscape = horizontal
   //Portrait = vertical
 
@@ -43,12 +49,14 @@ const ItemDetail = ({ route, navigation }) => {
   }, [idSelected]) */
 
   const handleAddCart = () => {
-    dispatch(addCartItem({...product, quantity: 1}))
+    dispatch(addCartItem({...product, quantity: countValue}))
   }
 
   return (
     <View>
-      <Button onPress={() => navigation.goBack()} title="Go back" />
+      <Pressable onPress={() => navigation.goBack()} title="Go back" > 
+      <MaterialCommunityIcons  name="backburger" size={24} color={colors.teal900} />
+      </Pressable>
       {product ? (
         <View
           style={
@@ -63,11 +71,23 @@ const ItemDetail = ({ route, navigation }) => {
             resizeMode="cover"
           />
           <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
-            <Text>{product.title}</Text>
-            <Text>{product.description}</Text>
+            <Text style={styles.text}>{product.title}</Text>
+            <Text style={styles.text}>{product.description}</Text>
             <Text style={styles.price}>${product.price}</Text>
-            <Button title="Add cart" onPress={handleAddCart}></Button>
+
+            <View>
+            <Counter/>
+            </View>
+
+            <View>            
+            <Pressable title="Add cart" onPress={handleAddCart}>
+            <Text>Agregar al carrito</Text>
+            <MaterialIcons  name="add-shopping-cart" size={24} color={colors.teal900} />
+            </Pressable>
+            </View>
+          
           </View>
+        
         </View>
       ) : null}
     </View>

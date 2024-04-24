@@ -11,7 +11,7 @@ import { useGetCategoriesQuery } from "../services/shopService"
 const Home = ({ route, navigation}) => {
 const {data:categories, error, isLoading} = useGetCategoriesQuery()
 
-console.log(categories)
+
 
   return (
     

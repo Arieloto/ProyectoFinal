@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity,Pressable } from "react-native";
 import React from "react";
 import { colors } from "../constants/colors";
 import { Entypo } from "@expo/vector-icons";
 
-const CartItem = ({ cartItem }) => {
+
+const CartItem = ({ cartItem, onDelete}) => {
     return (
         <View style={styles.card} onPress={() => {}}>
             <View style={styles.textContainer}>
@@ -11,7 +12,14 @@ const CartItem = ({ cartItem }) => {
                 <Text style={styles.text2}>{cartItem.brand}</Text>
                 <Text style={styles.text2}>${cartItem.price}</Text>
             </View>
+            
+   
+            <Pressable onPress={onDelete}>
             <Entypo name="trash" size={30} color="black" />
+            </Pressable>
+            
+           
+   
         </View>
     );
 };
@@ -37,12 +45,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "Josefin",
+        fontFamily: "Saira",
         fontSize: 19,
         color: colors.teal400,
     },
     text2: {
-        fontFamily: "Josefin",
+        fontFamily: "Saira",
         fontSize: 14,
         color: colors.teal600,
     },

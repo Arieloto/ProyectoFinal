@@ -19,7 +19,7 @@ const ItemListCategory = ({
 
   const {data: productsFetched, error: errorFromFetch, isLoading} = useGetProductsByCategoryQuery(categorySelected)
 
-  console.log(productsFetched);
+ 
   /* console.log(errorFromFetch);
   console.log(isLoading); */
 
