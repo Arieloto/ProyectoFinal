@@ -53,10 +53,15 @@ console.log(countValue)
   }
 
   return (
-    <View>
-      <Pressable style={styles.press} onPress={() => navigation.goBack()} title="Go back" > 
+    <View style={styles.container}>
+      <View style={styles.press}>
+        
+      <Pressable  onPress={() => navigation.goBack()} title="Go back" > 
+      <Text style={styles.press}>ATRAS</Text>
       <MaterialCommunityIcons  name="backburger" size={24} color={colors.teal900} />
       </Pressable>
+      </View>
+
       {product ? (
         <View
           style={
@@ -147,6 +152,12 @@ const styles = StyleSheet.create({
   },
   press: {
 backgroundColor: colors.teal200,
+borderColor:"black",
+flexDirection:"row",
+
+fontFamily: 'Saira',
+
+
   },
   text:{fontFamily: 'Saira',
 

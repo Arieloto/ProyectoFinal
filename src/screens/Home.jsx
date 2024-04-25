@@ -21,7 +21,7 @@ const {data:categories, error, isLoading} = useGetCategoriesQuery()
     <Banner/>
 
       <FlatList 
-      itemDimension= {Dimensions.get('window').width /3}
+      
       
       style={styles.gridView}
       numColumns={2}
