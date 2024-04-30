@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from "react-native"
 import { colors } from "../constants/colors"
+import { ScrollView } from 'react-native';
 // import products from "../data/products.json"
 import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
@@ -56,7 +57,9 @@ const ItemListCategory = ({
   }, [keyWord, categorySelected, productsFetched, isLoading])
 
   return (
+    
     <View style={styles.flatListContainer}>
+    
       <Search
         error={error}
         onSearch={setKeyword}
@@ -71,6 +74,7 @@ const ItemListCategory = ({
         )}
         keyExtractor={(producto) => producto.id}
       />
+ 
     </View>
   )
 }

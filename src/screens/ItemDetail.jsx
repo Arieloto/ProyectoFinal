@@ -8,7 +8,6 @@ import {
   useWindowDimensions
 } from "react-native"
 import React, { useEffect, useState } from "react"
-// import allProducts from "../data/products.json"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
@@ -17,149 +16,157 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {MaterialIcons} from '@expo/vector-icons'
 import Counter from "../components/Counter"
 import { useSelector } from "react-redux";
+import { FlatList, ScrollView } from "react-native-web"
 
 const ItemDetail = ({ route, navigation }) => {
 
   const dispatch = useDispatch()
-  // const [product, setProduct] = useState(null)
-  const [orientation, setOrientation] = useState("portrait")
-  const { width, height } = useWindowDimensions()
 
   const {productId: idSelected} = route.params
 
   const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
   
-  const countValue = useSelector(state => state.counter.value);
+  /*const countValue = useSelector(state => state.counter.value);*/
 
-console.log(countValue)
-  //Landscape = horizontal
-  //Portrait = vertical
 
-  useEffect(() => {
-    if (width > height) setOrientation("landscape")
-    else setOrientation("portrait")
-  }, [width, height])
-
-  /* useEffect(() => {
-    //Encontrar el producto por su id
-    const productSelected = allProducts.find(
-      (product) => product.id === idSelected
-    )
-    setProduct(productSelected)
-  }, [idSelected]) */
 
   const handleAddCart = () => {
-    dispatch(addCartItem({...product, quantity: countValue}))
+    dispatch(addCartItem({...product, quantity: 1}))
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.press}>
         
-      <Pressable  onPress={() => navigation.goBack()} title="Go back" > 
-      <Text style={styles.press}>ATRAS</Text>
-      <MaterialCommunityIcons  name="backburger" size={24} color={colors.teal900} />
+      <Pressable  onPress={() => navigation.goBack()} title="Go back" >       
+      <MaterialCommunityIcons  name="backburger" size={32} color={"black"} />
       </Pressable>
       </View>
-
       {product ? (
-        <View
-          style={
-            orientation === "portrait"?
-            styles.mainContainer
-            : styles.mainContainerLandscape
-          }
-        >
+        <View style={styles.mainContainer}>
           <Image
             source={{ uri: product.images[0] }}
-            style={orientation === "portrait" ? styles.image : styles.imageLandscape}
+            style={styles.image}
             resizeMode="cover"
           />
-          <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
+          <View style={styles.textContainer }>
             <Text style={styles.text}>{product.title}</Text>
-            <Text style={styles.text}>{product.description}</Text>
+            <Text style={styles.text2}>{product.description}</Text>
+            <View style={styles.pricecont}>
             <Text style={styles.price}>${product.price}</Text>
+            </View>
 
-            <View>
+           {/*<View>
             <Counter/>
-            </View>
-
-            <View>            
-            <Pressable title="Add cart" onPress={handleAddCart}>
-            <Text>Agregar al carrito</Text>
-            <MaterialIcons  name="add-shopping-cart" size={24} color={colors.teal900} />
+        </View>*/}
+            
+            <View style={styles.addToCartButton}>            
+            <Pressable style={styles.addToCartButton} title="Add cart" onPress={handleAddCart}>
+            <Text style={styles.addToCartText}>AGREGAR</Text>
+            <View>
+            <MaterialIcons  name="add-shopping-cart" size={24} color={"white"} />
+            </View>      
             </Pressable>
+                
             </View>
-          
+            
           </View>
-        
+         
+       
         </View>
       ) : null}
-    </View>
+     </View>
   )
 }
 
 export default ItemDetail
 
 const styles = StyleSheet.create({
+
   container: {
-  flex:1,
+    flex: 1,
     backgroundColor:colors.teal200,
-    
-  },
-  mainContainer: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: 10,
-    backgroundColor:colors.teal200,
-  },
-  mainContainerLandscape: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: 10,
-    gap: 10,
- 
-  },
-  image: {
-    width: '100%',
-    height: 250,
-  },
-  imageLandscape: {
-    width: '45%',
-    height: 200
-  },
-  textContainer: {
-    flexDirection: "column",   
-  },
-
-  textContainerLandscape: {
-   
-    width: '50%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'start',
-    gap: 10,
-
-  },
-  price: {
-    fontFamily: 'Saira',
-    marginTop:20,
-    marginBottom:20,
-    textAlign: 'right',
-    width: '100%',
   },
   press: {
-backgroundColor: colors.teal200,
-borderColor:"black",
-flexDirection:"row",
-
-fontFamily: 'Saira',
-
+    position:"absolute",
+    margin: 20, // Add some spacing after the back button
+    backgroundColor:colors.teal200,
+    zIndex:2,
+  },
+  pressButton: {
+    flexDirection: 'row', // Arrange icon and text horizontally
+    alignItems: 'center', // Align vertically
+  },
+  pressText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: 10, // Add spacing between text and icon
+  },
+  mainContainer: {
+    // Styles for portrait layout
+  },
+  mainContainerLandscape: {
+    // Styles for landscape layout (optional)
+  },
+  image: {
+    width: '100%', // Make the image fill the container width
+    aspectRatio: 1, // Maintain aspect ratio (optional)
+  },
+  textContainer: {
+    marginTop: 10,
+    marginLeft:"2%",
+    marginRight:"2%", // Add spacing above the text section
+  },
+  textContainerLandscape: {
+    // Styles for landscape text layout (optional)
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Saira',
+    marginLeft:10,
+    marginRight:10,
+  },
+  text2: {
+    fontSize: 12,
+    marginBottom: 25,
+    margin:10,
+    fontFamily: 'Saira',
+  },
+  price: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    fontFamily: 'Saira',
+    color: "white",
+    transform: [{ rotate: '-30deg' }],
+    position: 'absolute', 
+    top: 0, 
+    left: "6%",
+    marginBottom: "2%",
+    backgroundColor:colors.teal900,
+    padding:5,
+  },pricecont: {
+    width:200,
+    height:50,
+  },
+  addToCartButton: {
+    backgroundColor:colors.teal600,
+   
+    borderRadius: 5,
+    flexDirection:"row",
+    alignItems: 'center',
+    justifyContent:"center",
+    alignSelf:"center",
+    width: 200,
+    height: 40,
+   
+ 
 
   },
-  text:{fontFamily: 'Saira',
-
-  }
-})
+  addToCartText: {
+    color: 'white',
+    fontSize: 16,
+    marginRight: 10,
+    fontFamily: 'Saira',
+  },
+});

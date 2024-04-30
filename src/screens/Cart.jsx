@@ -4,19 +4,21 @@ import React from "react"
 import CartItem from "../components/CartItem"
 import { useSelector, useDispatch } from "react-redux"
 import { removeCartItem } from "../features/Cart/cartSlice"
-// import { useSelector } from "react-redux"
-// import { usePostOrderMutation } from "../services/shopService"
+import { usePostOrderMutation } from "../services/shopService"
+
 
 const Cart = () => {
   
     const {items: CartData, total} = useSelector(state => state.cart.value)
-   
+    const [triggerPostOrder, result] = usePostOrderMutation()
     const dispatch = useDispatch();
 
     const handleRemoveItem = (productId) => {
         dispatch(removeCartItem({ id: productId }));
     };
-
+    const onConfirmOrder = () => {
+        triggerPostOrder({items: CartData, user: 'Rafael', total})
+    }
 
     return (
        <><View style={styles.container}>
@@ -33,8 +35,8 @@ const Cart = () => {
             
             )}
             <View style={styles.totalContainer}>
-                <Pressable onPress={() => {}}>
-                    <Text>Confirm</Text>
+                <Pressable onPress={onConfirmOrder}>
+                    <Text>Confirm </Text>
                 </Pressable>
                 <Text>Total: ${total}</Text>
             </View>
