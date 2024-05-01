@@ -4,6 +4,7 @@ import { baseUrl } from "../databases/realtimeDatabase"
 export const shopApi = createApi({
     reducerPath: "shopApi", //Establish a unique name for the API
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+    tagTypes: ['profileImageGet'], //Declare tags
     endpoints: (builder) => ({
         getCategories: builder.query({
             query: () => `categories.json`,
@@ -12,7 +13,6 @@ export const shopApi = createApi({
             query: (category) =>
                 `products.json?orderBy="category"&equalTo="${category}"`,
             transformResponse: (response) => {
-                // console.log(response);
                 const responseTransformed = Object.values(response)
                 return responseTransformed
             },
@@ -21,7 +21,6 @@ export const shopApi = createApi({
             query: (productId) =>
                 `products.json?orderBy="id"&equalTo=${productId}`,
             transformResponse: (response) => {
-                // console.log(response);
                 const responseTransformed = Object.values(response)
                 if (responseTransformed.length) return responseTransformed[0]
                 return null
@@ -33,7 +32,22 @@ export const shopApi = createApi({
                 method: 'POST',
                 body: order
             })
-        })
+        }),
+        getProfileImage: builder.query({
+            query: (localId) => `profileImages/${localId}.json`,
+            providesTags: ['profileImageGet']
+        }),
+        //We make a PUT request for not creating additional key, because de localId is already an unique key.
+        postProfileImage: builder.mutation({
+            query: ({image, localId}) => ({
+                url: `profileImages/${localId}.json`,
+                method: "PUT",
+                body: {
+                    image: image
+                },
+            }),
+            invalidatesTags: ['profileImageGet'] //Invalidates will trigger a refetch on profileImageGet
+        }),
     }),
 })
 
@@ -41,5 +55,7 @@ export const {
     useGetCategoriesQuery,
     useGetProductByIdQuery,
     useGetProductsByCategoryQuery,
-    usePostOrderMutation
+    usePostOrderMutation,
+    useGetProfileImageQuery,
+    usePostProfileImageMutation,
 } = shopApi
