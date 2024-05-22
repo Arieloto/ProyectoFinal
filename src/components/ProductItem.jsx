@@ -7,7 +7,6 @@ import { setIdSelected } from "../features/Shop/shopSlice"
 
 const ProductItem = ({
   product,
-  setProductSelected = () => {},
   navigation,
 }) => {
 
@@ -34,7 +33,6 @@ const ProductItem = ({
 }
 
 export default ProductItem
-
 const styles = StyleSheet.create({
   image: {
     height: 160,
@@ -64,6 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+   
     
   },
 })

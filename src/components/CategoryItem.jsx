@@ -2,7 +2,7 @@ import {  Pressable, StyleSheet, Text, Image, View,useWindowDimensions } from "r
 import React from "react"
 import { colors } from "../constants/colors"
 import Card from "./Card"
-
+import { cambiarSubtitulo} from "../services/subtituloSlice";
 import {useDispatch, useSelector} from 'react-redux'
 import { setCategorySelected } from "../features/Shop/shopSlice"
 
@@ -10,11 +10,14 @@ import { setCategorySelected } from "../features/Shop/shopSlice"
 
 const CategoryItem = ({ image, category, navigation }) => {
 
+
   const dispatch = useDispatch()
 
   const handleNavigate = () => {
     dispatch(setCategorySelected(category))
+    dispatch(cambiarSubtitulo(false));
     navigation.navigate('ItemListCategory', {category})
+ 
   }
  const widthhome = useWindowDimensions().width
 
@@ -32,6 +35,7 @@ const CategoryItem = ({ image, category, navigation }) => {
     </View>
   )
 }
+
 
 export default CategoryItem
 

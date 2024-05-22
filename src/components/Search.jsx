@@ -3,8 +3,22 @@ import React, { useState } from "react"
 import { Entypo } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
 import { Ionicons } from '@expo/vector-icons';
+import {useDispatch, useSelector} from 'react-redux'
+import { cambiarSubtitulo} from "../services/subtituloSlice";
 
 const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
+  const dispatch = useDispatch();
+  const setStateSubt = () => {
+    dispatch(cambiarSubtitulo(true));
+  };
+  
+  const backarrow = () => {
+    goBack();
+    setStateSubt();
+  };
+  
+
+
   const [keyword, setKeyword] = useState("")
 
   return (
@@ -26,7 +40,7 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
       <Pressable onPress={() => setKeyword("")}>
         <Entypo name="erase" size={24} color={colors.teal900} />
       </Pressable>
-      <Pressable onPress={goBack}>
+      <Pressable onPress={backarrow} >
         <Ionicons name="arrow-back" size={24} color={colors.teal900} />
       </Pressable>
     </View>

@@ -9,35 +9,31 @@ import {
 } from "react-native"
 import React, { useEffect, useState } from "react"
 import { useGetProductByIdQuery } from "../services/shopService"
-import { useDispatch } from "react-redux"
+import { useDispatch,useSelector } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
 import { colors } from "../constants/colors"
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {MaterialIcons} from '@expo/vector-icons'
+import { ScrollView} from 'react-native';
 import Counter from "../components/Counter"
-import { useSelector } from "react-redux";
-import { FlatList, ScrollView } from "react-native-web"
 
 const ItemDetail = ({ route, navigation }) => {
 
   const dispatch = useDispatch()
-
+  const count = useSelector(state => state.counter.value);
   const {productId: idSelected} = route.params
 
   const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
   
-  /*const countValue = useSelector(state => state.counter.value);*/
-
-
 
   const handleAddCart = () => {
-    dispatch(addCartItem({...product, quantity: 1}))
+    dispatch(addCartItem({...product, quantity: count}))
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.press}>
-        
+    <>
+    <ScrollView style={styles.container}>
+      <View style={styles.press}>        
       <Pressable  onPress={() => navigation.goBack()} title="Go back" >       
       <MaterialCommunityIcons  name="backburger" size={32} color={"black"} />
       </Pressable>
@@ -54,28 +50,21 @@ const ItemDetail = ({ route, navigation }) => {
             <Text style={styles.text2}>{product.description}</Text>
             <View style={styles.pricecont}>
             <Text style={styles.price}>${product.price}</Text>
-            </View>
-
-           {/*<View>
             <Counter/>
-        </View>*/}
-            
+            </View>
             <View style={styles.addToCartButton}>            
             <Pressable style={styles.addToCartButton} title="Add cart" onPress={handleAddCart}>
             <Text style={styles.addToCartText}>AGREGAR</Text>
             <View>
             <MaterialIcons  name="add-shopping-cart" size={24} color={"white"} />
             </View>      
-            </Pressable>
-                
-            </View>
-            
-          </View>
-         
-       
+            </Pressable>                
+            </View>            
+          </View>      
         </View>
       ) : null}
-     </View>
+     </ScrollView>
+     </>
   )
 }
 
@@ -89,37 +78,29 @@ const styles = StyleSheet.create({
   },
   press: {
     position:"absolute",
-    margin: 20, // Add some spacing after the back button
+    margin: 20,
     backgroundColor:colors.teal200,
     zIndex:2,
   },
   pressButton: {
-    flexDirection: 'row', // Arrange icon and text horizontally
-    alignItems: 'center', // Align vertically
+    flexDirection: 'row', 
+    alignItems: 'center', 
   },
   pressText: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginRight: 10, // Add spacing between text and icon
-  },
-  mainContainer: {
-    // Styles for portrait layout
-  },
-  mainContainerLandscape: {
-    // Styles for landscape layout (optional)
+    marginRight: 10, 
   },
   image: {
-    width: '100%', // Make the image fill the container width
-    aspectRatio: 1, // Maintain aspect ratio (optional)
+    width: '100%', 
+    aspectRatio: 1, 
   },
   textContainer: {
     marginTop: 10,
     marginLeft:"2%",
-    marginRight:"2%", // Add spacing above the text section
+    marginRight:"2%", 
   },
-  textContainerLandscape: {
-    // Styles for landscape text layout (optional)
-  },
+
   text: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -134,6 +115,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Saira',
   },
   price: {
+    alignItems:"center",
     fontSize: 18,
     fontWeight: 'bold',
     fontFamily: 'Saira',
@@ -145,13 +127,16 @@ const styles = StyleSheet.create({
     marginBottom: "2%",
     backgroundColor:colors.teal900,
     padding:5,
-  },pricecont: {
+  },
+  pricecont: {
+    justifyContent:"space-between",
     width:200,
     height:50,
   },
   addToCartButton: {
+    marginTop:10,
+    marginBottom: 20,
     backgroundColor:colors.teal600,
-   
     borderRadius: 5,
     flexDirection:"row",
     alignItems: 'center',
@@ -159,9 +144,6 @@ const styles = StyleSheet.create({
     alignSelf:"center",
     width: 200,
     height: 40,
-   
- 
-
   },
   addToCartText: {
     color: 'white',

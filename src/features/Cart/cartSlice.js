@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
+// En cartSlice.js
+import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
     name: "cart",
@@ -15,44 +16,43 @@ export const cartSlice = createSlice({
             //Logic to add product
             const productRepeated = state.value.items.find(
                 (item) => item.id === payload.id
-            )
+            );
             if (productRepeated) {
-                console.log(productRepeated)
                 const itemsUpdated = state.value.items.map((item) => {
                     if (item.id === payload.id) {
-                        item.quantity += payload.quantity
-                        return item
+                        item.quantity += payload.quantity;
+                        return item;
                     }
-                    return item
-                })
+                    return item;
+                });
                 const total = itemsUpdated.reduce(
                     (acc, currentItem) =>
                         (acc += currentItem.price * currentItem.quantity),
                     0
-                )
+                );
                 state.value = {
                     ...state.value,
                     items: itemsUpdated,
                     total,
                     updatedAt: new Date().toLocaleString(),
-                }
+                };
             } else {
-                state.value.items.push(payload)
+                state.value.items.push(payload);
                 const total = state.value.items.reduce(
                     (acc, currentItem) =>
                         (acc += currentItem.price * currentItem.quantity),
                     0
-                )
+                );
                 state.value = {
                     ...state.value,
                     total,
                     updatedAt: new Date().toLocaleString(),
-                }
+                };
             }
         },
         removeCartItem: (state, { payload }) => {
-                        //Logic to remove product
-                        state.value.items = state.value.items.filter(item => item.id !== payload.id);
+            //Logic to remove product
+            state.value.items = state.value.items.filter(item => item.id !== payload.id);
             const total = state.value.items.reduce(
                 (acc, currentItem) =>
                     (acc += currentItem.price * currentItem.quantity),
@@ -63,10 +63,43 @@ export const cartSlice = createSlice({
                 total,
                 updatedAt: new Date().toLocaleString(),
             };
-        
+        },
+        decrementCartItem: (state, { payload }) => {
+            // Logic to decrement product quantity
+            const itemToDecrement = state.value.items.find(item => item.id === payload.id);
+            if (itemToDecrement && itemToDecrement.quantity > 1) {
+                itemToDecrement.quantity--;
+                const total = state.value.items.reduce(
+                    (acc, currentItem) =>
+                        (acc += currentItem.price * currentItem.quantity),
+                    0
+                );
+                state.value = {
+                    ...state.value,
+                    total,
+                    updatedAt: new Date().toLocaleString(),
+                };
+            }
+        },
+        incrementCartItem: (state, { payload }) => {
+            // Logic to increment product quantity
+            const itemToIncrement = state.value.items.find(item => item.id === payload.id);
+            if (itemToIncrement) {
+                itemToIncrement.quantity++;
+                const total = state.value.items.reduce(
+                    (acc, currentItem) =>
+                        (acc += currentItem.price * currentItem.quantity),
+                    0
+                );
+                state.value = {
+                    ...state.value,
+                    total,
+                    updatedAt: new Date().toLocaleString(),
+                };
+            }
         },
     },
-})
+});
 
-export const { addCartItem, removeCartItem } = cartSlice.actions
-export default cartSlice.reducer
+export const { addCartItem, removeCartItem, decrementCartItem, incrementCartItem } = cartSlice.actions;
+export default cartSlice.reducer;

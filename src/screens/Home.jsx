@@ -1,27 +1,33 @@
-import {StyleSheet, Text, View , Dimensions,FlatList } from "react-native"
+import { FlatList, StyleSheet, Text, View } from "react-native"
 import { colors } from "../constants/colors"
 import CategoryItem from "../components/CategoryItem"
-//import categories from "../data/categories.json"
-import { FlatGrid } from "react-native-super-grid"
-import Banner from "../components/Banner"
 import { useGetCategoriesQuery } from "../services/shopService"
-
-
+import { useGetProductsQuery } from "../services/shopService"
+import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/Header"
+import { cambiarSubtitulo} from "../services/subtituloSlice";
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback } from 'react';
+import Banner from "../components/Banner"
 
 const Home = ({ route, navigation}) => {
-const {data:categories, error, isLoading} = useGetCategoriesQuery()
+  
+  const {data: categories, error, isLoading} = useGetCategoriesQuery()
 
-
+  const dispatch = useDispatch();
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(cambiarSubtitulo(true));    
+    }, [])
+  );
 
   return (
-    
-    
-    <View style={styles.container}>  
-    
+    <>
     <Banner/>
-
-      <FlatList 
-      
+    <View style={styles.container}>
+    
+      <FlatList       
       
       style={styles.gridView}
       numColumns={2}
@@ -34,9 +40,9 @@ const {data:categories, error, isLoading} = useGetCategoriesQuery()
            
         )}
       />
+
     </View>
-   
-   
+    </>
   )
 }
 

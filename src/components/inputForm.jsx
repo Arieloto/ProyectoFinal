@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Saira'
     },
     error: {
-        paddingTop: 2,
+        paddintTop: 2,
         fontSize: 16,
         color: 'red',
         fontFamily: 'Saira',

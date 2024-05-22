@@ -4,10 +4,13 @@ import { baseUrl } from "../databases/realtimeDatabase"
 export const shopApi = createApi({
     reducerPath: "shopApi", //Establish a unique name for the API
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-    tagTypes: ['profileImageGet'], //Declare tags
+    tagTypes: ['profileImageGet', 'locationGet', 'getOrders'], //Declare tags
     endpoints: (builder) => ({
         getCategories: builder.query({
             query: () => `categories.json`,
+        }),
+        getProducts: builder.query({
+            query: () => `products.json`,
         }),
         getProductsByCategory: builder.query({
             query: (category) =>
@@ -25,13 +28,14 @@ export const shopApi = createApi({
                 if (responseTransformed.length) return responseTransformed[0]
                 return null
             },
-        }),
+        }),             
         postOrder: builder.mutation({
             query: ({...order}) => ({
                 url: 'orders.json',
                 method: 'POST',
                 body: order
-            })
+            }),
+            invalidatesTags: ['getOrders']
         }),
         getProfileImage: builder.query({
             query: (localId) => `profileImages/${localId}.json`,
@@ -48,14 +52,39 @@ export const shopApi = createApi({
             }),
             invalidatesTags: ['profileImageGet'] //Invalidates will trigger a refetch on profileImageGet
         }),
+        getLocation: builder.query({
+            query: (localId) => `locations/${localId}.json`,
+            providesTags: ['locationGet']
+        }),
+        postLocation: builder.mutation({
+            query: ({location, localId}) => ({
+                url: `locations/${localId}.json`,
+                method: "PUT",
+                body: {
+                    latitude: location.latitude,
+                    longitude: location.longitude,
+                    address: location.address,
+                    updatedAt: location.updatedAt
+                },
+            }),
+            invalidatesTags: ['locationGet'] //Invalidates will trigger a refetch on profileImageGet
+        }),
+        getOrders: builder.query({
+            query: () => `orders.json`,
+            providesTags: ['getOrders']
+        }),
     }),
 })
 
 export const {
     useGetCategoriesQuery,
+    useGetProductsQuery,
     useGetProductByIdQuery,
     useGetProductsByCategoryQuery,
     usePostOrderMutation,
     useGetProfileImageQuery,
     usePostProfileImageMutation,
+    useGetLocationQuery,
+    usePostLocationMutation,
+    useGetOrdersQuery
 } = shopApi

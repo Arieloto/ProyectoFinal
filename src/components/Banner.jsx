@@ -1,122 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { Image, StyleSheet, Text, View, Pressable, useWindowDimensions } from "react-native";
-import Swiper from "react-native-swiper";
-import producto from "../data/products.json";
-import { colors } from "../constants/colors";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { View, StyleSheet,Dimensions, Text} from 'react-native';
+import Swiper from 'react-native-swiper';
+import { useGetProductsQuery } from "../services/shopService";
+import BannerCard from "./BannerCard";
+import { colors } from '../constants/colors';
 
 const Banner = () => {
-  const navigation = useNavigation();
-  const [topDiscountProducts, setTopDiscountProducts] = useState([]);
- const widthbanner = useWindowDimensions().width
-  useEffect(() => {
-    const getTopDiscountProducts = () => {
-      // Ordenar los productos por su propiedad descuento en orden descendente
-      const sortedProducts = producto.sort((a, b) => b.discountPercentage - a.discountPercentage);
-      // Seleccionar los primeros 5 productos en oferta
-      const selectedProducts = sortedProducts.slice(0, 5);
-    
-      return selectedProducts;
-    };
+  const { data: products, isLoading, isError } = useGetProductsQuery();
 
-    setTopDiscountProducts(getTopDiscountProducts());
-  }, []);
-    
+  if (isLoading) {
+    return <Text>Cargando...</Text>
+  }
+
+  if (isError || !products) {
+    return <Text>Error producto no encontrado</Text>
+  }
+
+  // Ordenar productos por descuento de mayor a menor
+  const sortedProducts = products.slice().sort((a, b) => b.discountPercentage - a.discountPercentage);
+
+  // Seleccionar los primeros 5 productos
+  const topFiveProducts = sortedProducts.slice(0, 5);
+
   return (
-    <View style={styles.container} width={widthbanner}>
-      <Swiper style={styles.wrapper}  
-       showsPagination={false}
-       autoplay={true}
-       showsButtons={false}
-       autoplayTimeout={4}
-      
-       >
-        {topDiscountProducts.map((product, index) => (
-          <View style={styles.slide}  key={index}>
-            <Text style={styles.discount}>-%{product.discountPercentage}</Text>
-            <Text style={styles.price}>Oferta:${product.price}</Text>
-            <Pressable
-              
-              onPress={() =>
-                navigation.navigate("ItemDetail", { productId: product.id })
-              }
-            >             
-              <Image
-                resizeMode="cover"
-                style={styles.image } 
-                source={{ uri: product.images[0] }}
-              />
-              
-              <Text style={styles.textCategory}>{product.title}</Text>
-            </Pressable>
-            
-          </View>
+    <View style={styles.container}>
+      <Swiper
+      showsPagination={false}
+      autoplay={true}
+      showsButtons={false}
+      autoplayTimeout={5}
+        style={styles.swiper}
+      >
+        {topFiveProducts.map((product) => (
+          <BannerCard key={product.id} product={product} />
         ))}
-        
       </Swiper>
     </View>
   );
 };
 
-export default Banner;
-
 const styles = StyleSheet.create({
   container: {
-    
     backgroundColor:colors.teal400,    
     paddingTop: 5,
     paddingBottom: 5,
     height:250,  
-    
-      },
-  wrapper: {  
-    
   },
-  slide: { 
-    
-    justifyContent: "center",
-     
-  },
-  image: {   
-    height: 240,
-          
-  },
-  textCategory: {
-    color: colors.teal900,
-    paddingTop: 5, 
-    position: 'absolute',
-    bottom: 10,
-    fontFamily: 'Saira',    
-    paddingVertical: 2,
-    paddingHorizontal: 5,
-    backgroundColor: colors.platinum,   
-   
-  },
+  swiper: {
 
-  discount:{
-    zIndex:1,
-    position: 'absolute',
-    top: "2%", 
-    right: "5%", 
-    backgroundColor:colors.teal200, 
-    borderRadius: 20, 
-    paddingVertical: 1,
-    paddingHorizontal: 1,
-    fontFamily: 'Saira',
-  
-    
-  },
-  price:{
-    zIndex:1,
-    position: 'absolute',
-    top: "12%", 
-    right: "5%", 
-    backgroundColor:colors.teal200, 
-    borderRadius: 20, 
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    fontFamily: 'Saira',
-  
-    
   },
 });
+
+export default Banner;

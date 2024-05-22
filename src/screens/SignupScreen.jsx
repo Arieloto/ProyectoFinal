@@ -62,32 +62,6 @@ const SignupScreen = ({ navigation }) => {
                     break;
             }
         }
-        /* try {
-            //Submit logic with validations
-            const isValidVariableEmail = isValidEmail(email)
-            const isCorrectPassword = isAtLeastSixCharacters(password)
-            const isRepeatedPasswordCorrect = password === confirmPassword
-
-            if (isValidVariableEmail && isCorrectPassword && isRepeatedPasswordCorrect) {
-                const request = {
-                    email,
-                    password,
-                    returnSecureToken: true
-                }
-                triggerSignUp(request)
-            }
-
-            if (!isValidVariableEmail) setErrorMail ('Email is not correct')
-            else setErrorMail('')
-            if (!isCorrectPassword) setErrorPassword ('Password must be at least 6 characters')
-            else setErrorPassword('')
-            if (!isRepeatedPasswordCorrect) setErrorConfirmPassword ('Passwords must match')
-            else setErrorConfirmPassword('')
-
-        } catch (err) {
-            console.log("Catch error");
-            console.log(err.message);
-        } */
     };
 
     return (

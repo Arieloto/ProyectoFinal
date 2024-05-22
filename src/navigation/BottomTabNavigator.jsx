@@ -9,10 +9,13 @@ import Header from "../components/Header"
 import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 import MyProfileStackNavigator from "./MyProfileStackNavigator"
-
-const Tab = createBottomTabNavigator()
+import {useDispatch, useSelector} from 'react-redux'
+import { cambiarSubtitulo} from "../services/subtituloSlice";
 
 const BottomTabNavigator = () => {
+    const Tab = createBottomTabNavigator()
+    const dispatch = useDispatch()
+
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -28,6 +31,7 @@ const BottomTabNavigator = () => {
                 component={HomeStackNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => {
+                      
                         return (
                             <View>
                                 <FontAwesome5
@@ -37,8 +41,10 @@ const BottomTabNavigator = () => {
                                 />
                             </View>
                         )
-                    },
+                    },                                          
                 }}
+
+
             />
             <Tab.Screen
                 name="Cart"
@@ -55,6 +61,7 @@ const BottomTabNavigator = () => {
                             </View>
                         )
                     },
+
                 }}
             />
             <Tab.Screen 

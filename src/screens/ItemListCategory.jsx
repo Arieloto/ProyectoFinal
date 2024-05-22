@@ -1,14 +1,17 @@
 import { FlatList, StyleSheet, Text, View } from "react-native"
 import { colors } from "../constants/colors"
-import { ScrollView } from 'react-native';
-// import products from "../data/products.json"
 import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
-import { useState, useEffect } from "react"
+import { useState, useEffect,useFocusEffect } from "react"
 import { useGetProductsByCategoryQuery } from "../services/shopService"
+import Header from "../components/Header"
 
-const ItemListCategory = ({
-  setCategorySelected = () => {},
+
+import { cambiarSubtitulo} from "../services/subtituloSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+
+const ItemListCategory = ({ 
   navigation,
   route
 }) => {
@@ -19,15 +22,12 @@ const ItemListCategory = ({
   const {category: categorySelected} = route.params
 
   const {data: productsFetched, error: errorFromFetch, isLoading} = useGetProductsByCategoryQuery(categorySelected)
+  const dispatch = useDispatch();
 
- 
-  /* console.log(errorFromFetch);
-  console.log(isLoading); */
+
+
 
   useEffect(() => {
-    //Products filtered by category
-
-    //No digits validation
     const regexDigits = /\d/
     const hasDigits = regexDigits.test(keyWord)
     if (hasDigits) {
@@ -43,10 +43,6 @@ const ItemListCategory = ({
       return
     }
 
-    /* const productsPrefiltered = products.filter(
-      (product) => product.category === categorySelected
-    ) */
-    //Product filtered by name
     if (!isLoading) {
       const productsFilter = productsFetched.filter((product) =>
         product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())
@@ -57,25 +53,27 @@ const ItemListCategory = ({
   }, [keyWord, categorySelected, productsFetched, isLoading])
 
   return (
-    
-    <View style={styles.flatListContainer}>
-    
+    <>
+    <View style={styles.flatListContainer}>  
+
       <Search
         error={error}
         onSearch={setKeyword}
         goBack={() => navigation.goBack()}
       />
+
       <FlatList
       style={styles.gridView}
       numColumns={2}
         data={productsFiltered}
         renderItem={({ item }) => (
-          <ProductItem product={item} navigation={navigation}/>
+          <ProductItem product={item} navigation={navigation} />
         )}
         keyExtractor={(producto) => producto.id}
       />
  
     </View>
+    </>
   )
 }
 
@@ -85,14 +83,8 @@ const styles = StyleSheet.create({
   flatListContainer: {
     flexDirection: "column",   
     backgroundColor: colors.teal200, 
-    flex: 1,     
-    /*width: "100%",
-    backgroundColor: colors.teal400,
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,*/
+    flex: 1,    
+
   },
   gridView: { flex: 1,
     

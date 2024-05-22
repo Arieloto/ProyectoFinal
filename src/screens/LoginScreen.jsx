@@ -6,6 +6,7 @@ import SubmitButton from "../components/submitButton"
 import { useSignInMutation } from "../services/authService"
 import { setUser } from "../features/User/userSlice"
 import { useDispatch } from "react-redux"
+import { insertSession } from "../persistence"
 
 const LoginScreen = ({ navigation }) => {
     const dispatch = useDispatch()
@@ -14,14 +15,24 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = useState()
 
     useEffect(() => {
-        if (result.isSuccess) {
-            console.log("🕵🏻 ~ useEffect ~ result:", result)
-            dispatch(
-                setUser({
-                    email: result.data.email,
-                    idToken: result.data.idToken,
+        if (result?.data && result.isSuccess) {
+            insertSession({
+                email: result.data.email,
+                localId: result.data.localId,
+                token: result.data.idToken,
+            })
+                .then((response) => {
+                    dispatch(
+                        setUser({
+                            email: result.data.email,
+                            idToken: result.data.idToken,
+                            localId: result.data.localId,
+                        })
+                    )
                 })
-            )
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }, [result])
 
