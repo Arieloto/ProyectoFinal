@@ -15,10 +15,25 @@ const Cart = () => {
   const handleRemoveItem = (productId) => {
     dispatch(removeCartItem({ id: productId }));
   };
+const onConfirmOrder = () => {
 
-  const onConfirmOrder = () => {
-    triggerPostOrder({ items: CartData, user: localId, total });
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Sumamos 1 al mes ya que los meses se indexan desde 0
+  const day = String(currentDate.getDate()).padStart(2, "0");
+  const hours = String(currentDate.getHours()).padStart(2, "0");
+  const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+  const formattedDateTime = `${hours}:${minutes} ${day}/${month}/${year}`;
+
+  const orderData = {
+    items: CartData,
+    user: localId,
+    total,
+    dateTime: formattedDateTime 
   };
+
+  triggerPostOrder(orderData);
+};
 
   return (
     <View style={styles.container}>

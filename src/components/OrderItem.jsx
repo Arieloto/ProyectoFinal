@@ -4,6 +4,8 @@ import React from "react";
 import { colors } from "../constants/colors";
 
 const OrderItem = ({ order }) => {
+
+    const createdAt = order.dateTime
     const total = order.items.reduce(
         (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),
         0
@@ -13,7 +15,7 @@ const OrderItem = ({ order }) => {
         <View style={styles.card} onPress={() => {}}>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>
-                    {new Date(order.createdAt).toLocaleString()}
+                    {createdAt}
                 </Text>
                 <Text style={styles.text2}>${total}</Text>
             </View>
