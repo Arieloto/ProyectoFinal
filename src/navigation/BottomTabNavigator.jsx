@@ -47,7 +47,7 @@ const BottomTabNavigator = () => {
 
             />
             <Tab.Screen
-                name="Cart"
+                name="Carrito"
                 component={CartStack}
                 options={{
                     tabBarIcon: ({ focused }) => {
@@ -65,7 +65,7 @@ const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen 
-                name="Orders"
+                name="Pedidos"
                 component={OrderStack}
                 options={{
                     tabBarIcon: ({ focused }) => {
@@ -78,7 +78,7 @@ const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen 
-                name="My profile"
+                name="Mi Perfil"
                 component={MyProfileStackNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => {

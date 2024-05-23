@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, View, Text } from 'react-native'
+import { FlatList, StyleSheet, View, Text, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import OrderItem from '../components/OrderItem'
 import { useGetOrdersQuery } from '../services/shopService'
 import { useSelector } from 'react-redux'
-
+import { colors } from '../constants/colors'
 const OrderScreen = () => {
   const { localId } = useSelector(state => state.auth.value)
   const { data: orders, isSuccess } = useGetOrdersQuery(localId)
@@ -21,7 +21,7 @@ const OrderScreen = () => {
   console.log({ ordersFiltered })
 
   return (
-    <View>
+    <View style={styles.container}>
       {ordersFiltered && ordersFiltered.length > 0 ? (
         <FlatList
           data={ordersFiltered}
@@ -35,7 +35,10 @@ const OrderScreen = () => {
           }}
         />
       ) : (
-        <View><Text>No orders available</Text></View> // Placeholder when there are no orders
+        <View style={styles.emptyOrderContainer}>
+        <Image  style={styles.emptyOrderImage} source={{ uri: "https://cdn-icons-png.flaticon.com/128/11333/11333742.png" }}  />
+        <Text style={styles.emptyOrderText}>No se encontraron ordenes</Text>
+      </View>
       )}
     </View>
   )
@@ -43,4 +46,27 @@ const OrderScreen = () => {
 
 export default OrderScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",  
+    backgroundColor: colors.teal200,
+    height:"100%",
+  },
+
+emptyOrderContainer: {
+  justifyContent: "center",
+  alignItems: "center",
+},
+emptyOrderImage: {
+  width: 150,
+  height: 150,
+  marginBottom: 20,
+},
+emptyOrderText: {
+  fontSize: 16,
+  fontFamily: "Saira",
+  textAlign: "center",
+},})

@@ -1,13 +1,4 @@
-import {
-  Button,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions
-} from "react-native"
-import React, { useEffect, useState } from "react"
+import { Image, Pressable, StyleSheet, Text, View} from "react-native"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch,useSelector } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
@@ -16,9 +7,10 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {MaterialIcons} from '@expo/vector-icons'
 import { ScrollView} from 'react-native';
 import Counter from "../components/Counter"
+import PrecioChileno from "../constants/PrecioChileno"
 
 const ItemDetail = ({ route, navigation }) => {
-
+ 
   const dispatch = useDispatch()
   const count = useSelector(state => state.counter.value);
   const {productId: idSelected} = route.params
@@ -49,7 +41,7 @@ const ItemDetail = ({ route, navigation }) => {
             <Text style={styles.text}>{product.title}</Text>
             <Text style={styles.text2}>{product.description}</Text>
             <View style={styles.pricecont}>
-            <Text style={styles.price}>${product.price}</Text>
+            <Text style={styles.price}><PrecioChileno style={styles.price} valor={product.price} /></Text>
             <Counter/>
             </View>
             <View style={styles.addToCartButton}>            
@@ -99,11 +91,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft:"2%",
     marginRight:"2%", 
+     fontFamily: 'Saira',
   },
 
   text: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 16,    
     fontFamily: 'Saira',
     marginLeft:10,
     marginRight:10,

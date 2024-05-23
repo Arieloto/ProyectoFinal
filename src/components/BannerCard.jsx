@@ -4,7 +4,7 @@ import { Image, StyleSheet, Text, View, Pressable, useWindowDimensions } from "r
 import { useDispatch } from "react-redux"
 import { useNavigation } from "@react-navigation/native";
 import { setIdSelected } from "../features/Shop/shopSlice"
-
+import PrecioChileno from '../constants/PrecioChileno';
 const BannerCard = ({ product }) => {
   const navigation = useNavigation();
 
@@ -19,7 +19,8 @@ const BannerCard = ({ product }) => {
   return (
     <View style={styles.slide}>
     <Text style={styles.discount}>-%{product.discountPercentage}</Text>
-    <Text style={styles.price}>Oferta:${product.price}</Text>
+    
+    <Text style={styles.price}>Oferta: <PrecioChileno style={styles.text2} valor={product.price} /></Text>
     <Pressable
       
       onPress={handleNavigate}

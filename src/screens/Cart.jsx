@@ -5,6 +5,7 @@ import { usePostOrderMutation } from "../services/shopService";
 import { removeCartItem } from "../features/Cart/cartSlice";
 import CartItem from "../components/CartItem";
 import { colors } from '../constants/colors';
+import PrecioChileno from "../constants/PrecioChileno";
 const Cart = () => {
   const { localId } = useSelector((state) => state.auth.value);
   const { items: CartData, total } = useSelector((state) => state.cart.value);
@@ -16,16 +17,18 @@ const Cart = () => {
     dispatch(removeCartItem({ id: productId }));
   };
 const onConfirmOrder = () => {
+  
+  const idVenta = Math.random().toString(36).substr(2, 9);
 
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Sumamos 1 al mes ya que los meses se indexan desde 0
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); 
   const day = String(currentDate.getDate()).padStart(2, "0");
-  const hours = String(currentDate.getHours()).padStart(2, "0");
-  const minutes = String(currentDate.getMinutes()).padStart(2, "0");
-  const formattedDateTime = `${hours}:${minutes} ${day}/${month}/${year}`;
+
+  const formattedDateTime = `${day}/${month}/${year}`;
 
   const orderData = {
+    idVenta,
     items: CartData,
     user: localId,
     total,
@@ -39,23 +42,23 @@ const onConfirmOrder = () => {
     <View style={styles.container}>
       {CartData.length === 0 ? (
         <View style={styles.emptyCartContainer}>
-          <Image  source={{ uri: "https://www.pngkey.com/png/detail/411-4119504_el-carrito-de-la-compra-est-vaco-shopping.png" }} style={styles.emptyCartImage} />
+          <Image  source={{ uri:"https://cdn-icons-png.flaticon.com/128/4175/4175027.png" }} style={styles.emptyCartImage} />
           <Text style={styles.emptyCartText}>Por favor ingrese productos al carrito</Text>
         </View>
       ) : (
         <>
           <FlatList
             data={CartData}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
-              <CartItem cartItem={item} onDelete={() => handleRemoveItem(item.id)} />
+              <CartItem key={item.id} cartItem={item} onDelete={() => handleRemoveItem(item.id)} />
             )}
           />
           <View style={styles.totalContainer}>
             <Pressable style={styles.confirmButton} onPress={onConfirmOrder}>
               <Text style={styles.buttonText}>Confirmar</Text>
             </Pressable>
-            <Text style={styles.totalText}>Total: ${total}</Text>
+            <Text style={styles.totalText}>Total: <PrecioChileno style={styles.totalText} valor={total} /></Text>
           </View>
         </>
       )}

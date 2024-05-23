@@ -13,7 +13,7 @@ const Header = ({route}) => {
   const {width} = useWindowDimensions()
   const categorySelected = useSelector(state => state.shop.value.categorySelected)
   const titulo = (route.name === 'Shop') ? "A OTRA DIMENSION" :
-  (route.name === 'Cart' || route.name === 'Orders'|| route.name === 'My profile') ? route.name :
+  (route.name === 'Carrito' || route.name === 'Pedidos'|| route.name === 'Mi Perfil') ? route.name :
   categorySelected; 
 
 
