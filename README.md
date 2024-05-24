@@ -7,15 +7,15 @@ proyecto realizado con  expo/metro
 
 
 # Install/Instalación
-npm expo install
-npm install
-npx expo start
+- npm expo install
+- npm install
+- npx expo start
 
 # Dependencias/dependencies
 
-npm i react-native-svg // use svg
-npm i @react-navigation/native //navigation
-npm i react-redux // redux toolkit
-npm i react-native-swiper // image slide
-expo-sqlite
-media- library
+- npm i react-native-svg // use svg
+- npm i @react-navigation/native //navigation
+- npm i react-redux // redux toolkit
+- npm i react-native-swiper // image slide
+- expo-sqlite
+- media- library
