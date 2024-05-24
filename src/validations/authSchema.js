@@ -1,10 +1,10 @@
 import { object, string, ref } from "yup"
 export const signupSchema = object().shape({
-    email: string().required("Email is required").email("Not a valid email"),
+    email: string().required("El correo electrónico es obligatorio").email("Correo electrónico no válido"),
     password: string()
-        .required("Password is required")
-        .min(6, "Password must be at least 6 characters"),
+        .required("La contraseña es obligatoria")
+        .min(6, "La contraseña debe tener al menos 6 caracteres"),
     confirmPassword: string()
-        .oneOf([ref("password"), null], "Passwords must match")
-        .required(),
+        .oneOf([ref("password"), null], "Las contraseñas deben coincidir")
+        .required("La confirmación de la contraseña es obligatoria"),
 })

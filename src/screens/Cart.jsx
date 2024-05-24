@@ -6,6 +6,7 @@ import { removeCartItem } from "../features/Cart/cartSlice";
 import CartItem from "../components/CartItem";
 import { colors } from '../constants/colors';
 import PrecioChileno from "../constants/PrecioChileno";
+
 const Cart = () => {
   const { localId } = useSelector((state) => state.auth.value);
   const { items: CartData, total } = useSelector((state) => state.cart.value);
@@ -16,33 +17,33 @@ const Cart = () => {
   const handleRemoveItem = (productId) => {
     dispatch(removeCartItem({ id: productId }));
   };
-const onConfirmOrder = () => {
-  
-  const idVenta = Math.random().toString(36).substr(2, 9);
 
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); 
-  const day = String(currentDate.getDate()).padStart(2, "0");
+  const onConfirmOrder = () => {
+    const idVenta = Math.random().toString(36).substr(2, 9);
 
-  const formattedDateTime = `${day}/${month}/${year}`;
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); 
+    const day = String(currentDate.getDate()).padStart(2, "0");
 
-  const orderData = {
-    idVenta,
-    items: CartData,
-    user: localId,
-    total,
-    dateTime: formattedDateTime 
+    const formattedDateTime = `${day}/${month}/${year}`;
+
+    const orderData = {
+      idVenta,
+      items: CartData,
+      user: localId,
+      total,
+      dateTime: formattedDateTime
+    };
+
+    triggerPostOrder(orderData);
   };
-
-  triggerPostOrder(orderData);
-};
 
   return (
     <View style={styles.container}>
       {CartData.length === 0 ? (
         <View style={styles.emptyCartContainer}>
-          <Image  source={{ uri:"https://cdn-icons-png.flaticon.com/128/4175/4175027.png" }} style={styles.emptyCartImage} />
+          <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/4175/4175027.png" }} style={styles.emptyCartImage} />
           <Text style={styles.emptyCartText}>Por favor ingrese productos al carrito</Text>
         </View>
       ) : (
@@ -55,8 +56,12 @@ const onConfirmOrder = () => {
             )}
           />
           <View style={styles.totalContainer}>
-            <Pressable style={styles.confirmButton} onPress={onConfirmOrder}>
-              <Text style={styles.buttonText}>Confirmar</Text>
+            <Pressable
+              style={[styles.confirmButton, result.isLoading && styles.buttonDisabled]}
+              onPress={onConfirmOrder}
+              disabled={result.isLoading}
+            >
+              <Text style={styles.buttonText}>{result.isLoading ? "CONFIRMANDO PEDIDO..." : "CONFIRMAR"}</Text>
             </Pressable>
             <Text style={styles.totalText}>Total: <PrecioChileno style={styles.totalText} valor={total} /></Text>
           </View>
@@ -72,9 +77,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",  
+    alignItems: "center",
     backgroundColor: colors.teal200,
-    height:"100%",
+    height: "100%",
   },
   emptyCartContainer: {
     justifyContent: "center",
@@ -95,10 +100,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    marginBottom:40,
+    marginBottom: 40,
   },
   confirmButton: {
-    backgroundColor:colors.teal600,
+    backgroundColor: colors.teal600,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -106,8 +111,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Saira",
   },
+  buttonDisabled: {
+    backgroundColor: colors.teal400,
+  },
   buttonText: {
-    color: "white",   
+    color: "white",
     fontSize: 16,
     fontFamily: "Saira",
   },

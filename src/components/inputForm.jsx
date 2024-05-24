@@ -5,7 +5,7 @@ import { colors } from '../constants/colors';
 const InputForm = ({
     label, 
     onChange, 
-    error = "",
+    error = "HOLA",
     isSecure = false
 }) => {
     const [input, setInput] = useState("");
@@ -40,12 +40,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        
     },
     subtitle: {
         width: '90%',
         fontSize: 16,
-        fontFamily: 'Saira'
+        fontFamily: 'Saira',
+        color: colors.platinum,
     },
     error: {
         paddintTop: 2,
@@ -56,9 +58,9 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '90%',
-        borderWidth: 0,
-        borderBottomWidth: 3,
-        borderBottomColor: colors.teal400,
+        borderWidth: 1,
+        color: colors.platinum,
+        borderColor: colors.teal400,
         padding: 2,
         fontFamily: 'Saira',
         fontSize: 14,

@@ -37,7 +37,7 @@ const OrderScreen = () => {
       ) : (
         <View style={styles.emptyOrderContainer}>
         <Image  style={styles.emptyOrderImage} source={{ uri: "https://cdn-icons-png.flaticon.com/128/11333/11333742.png" }}  />
-        <Text style={styles.emptyOrderText}>No se encontraron ordenes</Text>
+        <Text style={styles.emptyOrderText}>No se encontraron pedidos</Text>
       </View>
       )}
     </View>

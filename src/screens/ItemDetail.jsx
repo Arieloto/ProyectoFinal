@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View} from "react-native"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch,useSelector } from "react-redux"
+import { useState } from "react"
 import { addCartItem } from "../features/Cart/cartSlice"
 import { colors } from "../constants/colors"
 import {MaterialCommunityIcons} from '@expo/vector-icons'
@@ -8,6 +9,7 @@ import {MaterialIcons} from '@expo/vector-icons'
 import { ScrollView} from 'react-native';
 import Counter from "../components/Counter"
 import PrecioChileno from "../constants/PrecioChileno"
+import Notification from '../components/Notification';
 
 const ItemDetail = ({ route, navigation }) => {
  
@@ -17,10 +19,20 @@ const ItemDetail = ({ route, navigation }) => {
 
   const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
   
+  const [notificationVisible, setNotificationVisible] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const handleAddCart = () => {
     dispatch(addCartItem({...product, quantity: count}))
+    setNotificationVisible(true);
+    setIsButtonDisabled(true);
+    
   }
+
+  const handleNotificationDismiss = () => {
+    setNotificationVisible(false);
+    setIsButtonDisabled(false);
+  };
 
   return (
     <>
@@ -45,17 +57,27 @@ const ItemDetail = ({ route, navigation }) => {
             <Counter/>
             </View>
             <View style={styles.addToCartButton}>            
-            <Pressable style={styles.addToCartButton} title="Add cart" onPress={handleAddCart}>
-            <Text style={styles.addToCartText}>AGREGAR</Text>
-            <View>
-            <MaterialIcons  name="add-shopping-cart" size={24} color={"white"} />
-            </View>      
-            </Pressable>                
+            <Pressable
+                  style={[styles.addToCartButton, isButtonDisabled && styles.disabledButton]}
+                  title="Add cart"
+                  onPress={handleAddCart}
+                  disabled={isButtonDisabled}
+                >
+                  <Text style={styles.addToCartText}>AGREGAR</Text>
+                  <View>
+                    <MaterialIcons name="add-shopping-cart" size={24} color="white" />
+                  </View>
+                </Pressable>          
             </View>            
           </View>      
         </View>
       ) : null}
      </ScrollView>
+     <Notification
+        message={`${count} items han sido agregados a tu carrito.`}
+        visible={notificationVisible}
+        onDismiss={handleNotificationDismiss}
+      />
      </>
   )
 }
@@ -142,5 +164,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginRight: 10,
     fontFamily: 'Saira',
+  },
+  disabledButton: {
+    
+    backgroundColor: colors.teal400,
+    
+  },
+  addToCartButtonContainer: {
+    marginTop: 20,
   },
 });
