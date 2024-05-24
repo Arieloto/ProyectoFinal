@@ -22,7 +22,7 @@ export default AddButton;
 const styles = StyleSheet.create({
     button: {
         width: "80%",
-        borderWidth: 1,
+        borderRadius:5,
         backgroundColor: colors.teal600,
         justifyContent: "center",
         alignItems: "center",
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: "Saira",
         fontSize: 18,
-        color: colors.teal200,
+        color: colors.platinum,
     },
 });

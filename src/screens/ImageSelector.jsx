@@ -148,16 +148,16 @@ const ImageSelector = ({ navigation }) => {
             {image || imageFromBase ? (
                 <>
                     <Image source={{ uri: image || imageFromBase?.image }} style={styles.image} />
-                    <AddButton title="Take another photo" onPress={pickImage} />
-                    <AddButton title="Pick photo from gallery" onPress={pickLibraryImage} />
-                    <AddButton title="Confirm photo" onPress={confirmImage} />
+                    <AddButton title="Tomar otra foto de perfil" onPress={pickImage} />
+                    <AddButton title="Tomar foto desde la galeria" onPress={pickLibraryImage} />
+                    <AddButton title="Confirmar foto" onPress={confirmImage} />
                 </>
             ) : (
                 <>
                     <View style={styles.noPhotoContainer}>
-                        <Text>No photo to show...</Text>
+                        <Text>No hay foto para mostrar...</Text>
                     </View>
-                    <AddButton title="Take a photo" onPress={pickImage} />
+                    <AddButton title="Tomar foto" onPress={pickImage} />
                 </>
             )}
         </View>

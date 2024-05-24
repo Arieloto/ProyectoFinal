@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
             setError("Por favor ingresa tu contraseña");
             return;
         }
-        if (password.length <= 6) {
+        if (password.length <= 5) {
             setError("Contraseña debe tener almenos 6 caracteres");
             return;
         }

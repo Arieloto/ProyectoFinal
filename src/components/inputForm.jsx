@@ -5,7 +5,7 @@ import { colors } from '../constants/colors';
 const InputForm = ({
     label, 
     onChange, 
-    error = "HOLA",
+    error = "",
     isSecure = false
 }) => {
     const [input, setInput] = useState("");

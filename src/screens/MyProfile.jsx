@@ -54,12 +54,12 @@ const MyProfile = ({ navigation }) => {
                 onPress={launchCamera}
                 title={
                     imageFromBase || imageCamera
-                        ? "Modify profile picture"
-                        : "Add profile picture"
+                        ? "Modificar foto de perfil"
+                        : "Agregar foto de perfil"
                 }
             />
-            <AddButton onPress={launchLocation} title="My address" />
-            <AddButton onPress={signOut} title="Sign out" />
+            <AddButton onPress={launchLocation} title="Mi direccion" />
+            <AddButton onPress={signOut} title="Desconectar" />
         </View>
     )
 }
