@@ -5,15 +5,35 @@ Se trata de una tienda llamada A otra dimension que vende productos de impresion
 
 proyecto realizado con  expo/metro
 
-## Installation
-
-Install my-project with npm
-
+## Install expo
+Install node.js
 ```bash
  npm expo install
-npm install
-npx expo start
+```
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
   cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+ npx expo start
 ```
 
 # Dependencias/dependencies
