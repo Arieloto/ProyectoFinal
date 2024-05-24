@@ -3,7 +3,7 @@
 
 Se trata de una tienda llamada A otra dimension que vende productos de impresion 3d y maquinas cnc
 
-proyecto realizado con  expo/metro
+proyecto realizado con  - expo/metro
 
 ## Install expo
 Install node.js
