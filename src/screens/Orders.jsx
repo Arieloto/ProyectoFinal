@@ -12,13 +12,13 @@ const OrderScreen = () => {
   useEffect(() => {
     if (isSuccess && orders) {
       const responseTransformed = Object.values(orders)
-      console.log({ localId })
+      
       const filteredOrders = responseTransformed.filter(order => order.user === localId)
       setOrdersFiltered(filteredOrders)
     }
   }, [orders, isSuccess, localId])
 
-  console.log({ ordersFiltered })
+ 
 
   return (
     <View style={styles.container}>

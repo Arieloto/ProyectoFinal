@@ -40,14 +40,14 @@ const LocationSelector = ({ navigation }) => {
     
                 if (status === "granted") {
                     let location = await Location.getCurrentPositionAsync({})
-                    console.log(location)
+                   
                     setLocation({
                         latitude: location.coords.latitude,
                         longitude: location.coords.longitude
                     })
                 }
             } catch (error) {
-                console.log(error);
+                
             }
         })()
 

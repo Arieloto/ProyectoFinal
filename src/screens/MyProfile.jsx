@@ -26,10 +26,10 @@ const MyProfile = ({ navigation }) => {
     const signOut = async () => {
         try {
             const response = await truncateSessionsTable()
-            console.log(response);
+           
             dispatch(clearUser())
         } catch (error) {
-            console.log({errorSignOutDB: error});
+            
         }
     }
 

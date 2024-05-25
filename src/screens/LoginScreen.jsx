@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
                     );
                 })
                 .catch((err) => {
-                    console.log(err);
+                   
                     setError("Error storing session data.");
                 });
         } else if (result.isError) {

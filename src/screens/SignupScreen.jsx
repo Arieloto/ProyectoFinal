@@ -23,7 +23,7 @@ const SignupScreen = ({ navigation }) => {
 
     useEffect(()=> {
         if (result.isSuccess) {
-            console.log("🕵🏻 ~ useEffect ~ result:", result)
+            
             dispatch(
                 setUser({
                     email: result.data.email,
@@ -41,9 +41,7 @@ const SignupScreen = ({ navigation }) => {
             const validation = signupSchema.validateSync({email, password, confirmPassword})
             triggerSignUp({email, password, returnSecureToken: true})
         } catch (err) {
-            console.log("Entro al signup del error");
-            console.log(err.path);
-            console.log(err.message);
+           
             switch (err.path) {
                 case "email":
                     setErrorMail(err.message)

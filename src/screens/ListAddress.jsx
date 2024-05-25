@@ -12,7 +12,7 @@ const ListAddress = ({ navigation }) => {
 
     const { data: location, isLoading, error } = useGetLocationQuery(localId)
 
-    console.log(location);
+    
 
     return location ? (
         <AddressItem 
