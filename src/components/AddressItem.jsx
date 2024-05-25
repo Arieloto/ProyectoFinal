@@ -10,6 +10,7 @@ const AddressItem = ({ location, navigation }) => {
     }
 
     return (
+        <View style={styles.container}>
         <View style={styles.card} onPress={() => {}}>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>
@@ -18,9 +19,10 @@ const AddressItem = ({ location, navigation }) => {
             </View>
             <Pressable onPress={onChangeLocation}>
                 <Entypo name="location" size={30} color="black">
-                    <Text style={styles.text2}>Change</Text>
+                    <Text style={styles.text2}>Cambiar ubicación</Text>
                 </Entypo>
             </Pressable>
+        </View>
         </View>
     );
 };
@@ -28,31 +30,38 @@ const AddressItem = ({ location, navigation }) => {
 export default AddressItem;
 
 const styles = StyleSheet.create({
-    card: {
+    container: {
+        flex:1,
+       backgroundColor: colors.teal200,
+    },
+    card: {      
         height: 100,
-        backgroundColor: colors.teal900,
-        padding: 10,
-        margin: 10,
-        borderWidth: 2,
-        borderRadius: 10,
+        backgroundColor: colors.platinum,
+        paddingTop: 10,
+        marginTop: 10,
+        paddingBottom: 10,
+        marginBottom: 10,
+        paddingLeft:10,
+        paddingRight:10,
+        width: "100%",        
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
     },
     textContainer: {
-        width: "70%",
+        width:"60%",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
     },
     text: {
         fontFamily: "Saira",
-        fontSize: 17,
-        color: "black",
+        fontSize: 14,
+        color: colors.teal600,
     },
     text2: {
         fontFamily: "Saira",
-        fontSize: 19,
-        color: colors.platinum,
+        fontSize: 12,
+        color: colors.teal400,
     },
 });

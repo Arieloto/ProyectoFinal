@@ -4,9 +4,8 @@ import { useSelector } from "react-redux"
 import AddButton from "../components/AddButton"
 import { useGetLocationQuery } from "../services/shopService"
 import AddressItem from "../components/AddressItem"
+import { colors } from "../constants/colors"
 
-/* import AddressItem from '../Components/AddressItem'
-import { useGetUserLocationQuery } from "../Services/shopServices"; */
 
 const ListAddress = ({ navigation }) => {
     const { localId } = useSelector((state) => state.auth.value)
@@ -16,15 +15,15 @@ const ListAddress = ({ navigation }) => {
     console.log(location);
 
     return location ? (
-        <AddressItem
+        <AddressItem 
             location={location}
             navigation={navigation}
         />
     ) : (
         <View style={styles.container}>
-            <Text style={styles.text}>No location set</Text>
+            <Text style={styles.text}>No ha ingresado ubicación</Text>
             <AddButton
-                title="Set location"
+                title="Agregar ubicación"
                 onPress={() => navigation.navigate("Location Selector")}
             />
         </View>
@@ -37,6 +36,8 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: "flex-start",
         alignItems: "center",
+        flex:1,
+        backgroundColor:colors.teal200,
     },
     text: {
         paddingVertical: 20,

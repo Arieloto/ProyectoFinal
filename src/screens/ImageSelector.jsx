@@ -7,8 +7,7 @@ import { setCameraImage } from "../features/User/userSlice";
 import AddButton from "../components/AddButton";
 import { colors } from "../constants/colors";
 import { useGetProfileImageQuery, usePostProfileImageMutation } from "../services/shopService";
-// import { usePostProfileImageMutation } from "../Services/shopServices";
-// import { saveImage } from "../Features/User/userSlice";
+
 
 const ImageSelector = ({ navigation }) => {
     const [image, setImage] = useState(null);
@@ -25,10 +24,6 @@ const ImageSelector = ({ navigation }) => {
 
     const dispatch = useDispatch()
 
-    /* const [triggerSaveImage, resultSaveImage] = usePostProfileImageMutation();
-    const dispatch = useDispatch();
-    const { localId } = useSelector((state) => state.auth.value); */
-
     const verifyCameraPermissions = async () => {
         const {granted} = await ImagePicker.requestCameraPermissionsAsync()
         return granted
@@ -38,15 +33,7 @@ const ImageSelector = ({ navigation }) => {
         const {granted} = await ImagePicker.requestMediaLibraryPermissionsAsync()
         return granted
     }
-    /* const verifyCameraPermissions = async () => {
-        const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-        if (!granted) {
-            return false;
-        }
-        return true;
-    };
- */
-
+   
     const pickLibraryImage = async () => {
         try {
             setIsImageFromCamera(false)
@@ -100,25 +87,6 @@ const ImageSelector = ({ navigation }) => {
             console.log(error);
         }
 
-        /* //Permission for camera
-        const isCameraOk = await verifyCameraPermissions();
-
-        if (isCameraOk) {
-            // No permissions request is necessary for launching the image library
-            let result = await ImagePicker.launchCameraAsync({
-                mediaTypes: ImagePicker.MediaTypeOptions.All,
-                allowsEditing: true,
-                aspect: [1, 1],
-                base64: true,
-                quality: 0.1,
-            });
-
-            if (!result.canceled) {
-                // console.log(result.assets[0].base64.length);
-                const image = `data:image/jpeg;base64,${result.assets[0].base64}`
-                setImage(image)
-            }
-        } */
     };
     
     const confirmImage = async () => {
@@ -130,15 +98,9 @@ const ImageSelector = ({ navigation }) => {
             }
             navigation.goBack()
         } catch (error) {
-            console.log(error);
+          
         }
-        /* try {
-            dispatch(setCameraImage(image));
-            triggerSaveImage({image, localId})
-        } catch (error) {
-            console.log(error);
-        }
-        navigation.goBack(); */
+      
     };
 
     console.log({image});
@@ -172,7 +134,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-start",
         gap: 20,
-        marginTop: 20,
+        paddingTop: 20,
+        backgroundColor:colors.teal200,
     },
     image: {
         width: 200,

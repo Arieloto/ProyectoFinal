@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { useGetProfileImageQuery } from "../services/shopService"
 import { clearUser } from "../features/User/userSlice"
 import { truncateSessionsTable } from "../persistence"
+import { colors } from "../constants/colors"
 
 const MyProfile = ({ navigation }) => {
-    /* const {localId, imageCamera} = useSelector(state => state.auth.value)
-    const {data: imageFromBase} = useGetProfileImageQuery(localId) */
+
 
     const dispatch = useDispatch()
 
@@ -68,10 +68,12 @@ export default MyProfile
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         padding: 10,
         gap: 15,
         alignItems: "center",
         justifyContent: "flex-start",
+        backgroundColor: colors.teal200,
     },
     image: {
         width: 100,
