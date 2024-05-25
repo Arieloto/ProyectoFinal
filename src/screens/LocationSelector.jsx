@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, View,Pressable } from "react-native"
 import React, { useEffect, useState } from "react"
 import * as Location from "expo-location"
 import AddButton from "../components/AddButton"
@@ -7,6 +7,7 @@ import { googleMapsApiKey } from "../databases/googleMaps"
 import { colors } from "../constants/colors"
 import { useGetLocationQuery, usePostLocationMutation } from "../services/shopService"
 import { useSelector } from "react-redux"
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 const LocationSelector = ({ navigation }) => {
     const [location, setLocation] = useState({ latitude: "", longitude: "" })
@@ -73,6 +74,11 @@ const LocationSelector = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+             <View style={styles.press}>        
+      <Pressable  onPress={() => navigation.goBack()} title="Go back" >       
+      <MaterialCommunityIcons  name="backburger" size={32} color={"black"} />
+      </Pressable>
+      </View>
             <Text style={styles.text}>Mi ubicación</Text>
            
             {location ? (
@@ -128,4 +134,10 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 16,
     },
+    press: {
+        alignSelf:"flex-end",
+        borderWidth:4,
+        borderColor:colors.teal900,
+        margin:3,
+        },
 })

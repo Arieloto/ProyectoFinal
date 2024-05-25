@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native"
+import { Image, StyleSheet, View,Text, Pressable } from "react-native"
 import React from "react"
 import AddButton from "../components/AddButton"
 import { useDispatch, useSelector } from "react-redux"
@@ -11,7 +11,7 @@ const MyProfile = ({ navigation }) => {
 
 
     const dispatch = useDispatch()
-
+    const {user} = useSelector(state => state.auth.value)
     const { imageCamera, localId } = useSelector((state) => state.auth.value)
     const { data: imageFromBase } = useGetProfileImageQuery(localId)
 
@@ -50,14 +50,15 @@ const MyProfile = ({ navigation }) => {
                     resizeMode="cover"
                 />
             )}
-            <AddButton
+            <Pressable style={styles.buttonplus}
                 onPress={launchCamera}
                 title={
                     imageFromBase || imageCamera
-                        ? "Modificar foto de perfil"
-                        : "Agregar foto de perfil"
+                        ? "+"
+                        : "+"
                 }
-            />
+            ><Text style={styles.plus}>+</Text></Pressable>
+            <Text style={styles.user}>Hola {user}</Text>
             <AddButton onPress={launchLocation} title="Mi direccion" />
             <AddButton onPress={signOut} title="Desconectar" />
         </View>
@@ -80,4 +81,29 @@ const styles = StyleSheet.create({
         height: 100,
         borderRadius: 50,
     },
+    buttonplus: {
+        width: 25,
+        height: 25,
+        borderRadius:50,
+        backgroundColor: colors.teal900,
+        position:"absolute",
+        top:86,
+        right:160,
+    },
+    plus: {
+       fontFamily:"Saira",
+       fontSize:30,
+       color:colors.platinum,
+       position:"absolute",
+       bottom:-7,
+       right:4,
+    },
+    user: {
+        fontFamily:"Saira",
+        fontSize:20,
+        color:colors.teal900,
+   
+ 
+         
+     },
 })

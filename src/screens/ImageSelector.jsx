@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, View, StyleSheet, Text } from "react-native";
+import { Image, View, StyleSheet, Text,Pressable } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as ExpoLibrary from "expo-media-library";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { setCameraImage } from "../features/User/userSlice";
 import AddButton from "../components/AddButton";
 import { colors } from "../constants/colors";
 import { useGetProfileImageQuery, usePostProfileImageMutation } from "../services/shopService";
-
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 const ImageSelector = ({ navigation }) => {
     const [image, setImage] = useState(null);
@@ -106,6 +106,13 @@ const ImageSelector = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+
+      <View style={styles.press}>        
+      <Pressable  onPress={() => navigation.goBack()} title="Go back" >       
+      <MaterialCommunityIcons  name="backburger" size={32} color={"black"} />
+      </Pressable>
+      </View>
+
             {image || imageFromBase ? (
                 <>
                     <Image source={{ uri: image || imageFromBase?.image }} style={styles.image} />
@@ -133,7 +140,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-start",
         gap: 20,
-        paddingTop: 20,
+       
         backgroundColor:colors.teal200,
     },
     image: {
@@ -148,5 +155,11 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: "center",
         alignItems: "center",
+    },
+    press: {
+    alignSelf:"flex-end",
+    borderWidth:4,
+    borderColor:colors.teal900,
+    margin:3,
     },
 });

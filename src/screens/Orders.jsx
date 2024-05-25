@@ -25,7 +25,7 @@ const OrderScreen = () => {
       {ordersFiltered && ordersFiltered.length > 0 ? (
         <FlatList
           data={ordersFiltered}
-          keyExtractor={(item) => String(item.id)} // Ensure each item has a unique key
+          keyExtractor={(item) => String(item.idVenta)} // Ensure each item has a unique key
           renderItem={({ item }) => {
             return (
               <OrderItem
