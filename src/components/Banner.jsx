@@ -16,10 +16,7 @@ const Banner = () => {
     return <Text>Error producto no encontrado</Text>
   }
 
-  // Ordenar productos por descuento de mayor a menor
   const sortedProducts = products.slice().sort((a, b) => b.discountPercentage - a.discountPercentage);
-
-  // Seleccionar los primeros 5 productos
   const topFiveProducts = sortedProducts.slice(0, 5);
 
   return (

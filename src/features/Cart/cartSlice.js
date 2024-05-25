@@ -1,4 +1,4 @@
-// En cartSlice.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
@@ -13,7 +13,7 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addCartItem: (state, { payload }) => {
-            //Logic to add product
+         
             const productRepeated = state.value.items.find(
                 (item) => item.id === payload.id
             );
@@ -51,7 +51,7 @@ export const cartSlice = createSlice({
             }
         },
         removeCartItem: (state, { payload }) => {
-            //Logic to remove product
+      
             state.value.items = state.value.items.filter(item => item.id !== payload.id);
             const total = state.value.items.reduce(
                 (acc, currentItem) =>
@@ -65,7 +65,7 @@ export const cartSlice = createSlice({
             };
         },
         decrementCartItem: (state, { payload }) => {
-            // Logic to decrement product quantity
+           
             const itemToDecrement = state.value.items.find(item => item.id === payload.id);
             if (itemToDecrement && itemToDecrement.quantity > 1) {
                 itemToDecrement.quantity--;
@@ -82,7 +82,7 @@ export const cartSlice = createSlice({
             }
         },
         incrementCartItem: (state, { payload }) => {
-            // Logic to increment product quantity
+        
             const itemToIncrement = state.value.items.find(item => item.id === payload.id);
             if (itemToIncrement) {
                 itemToIncrement.quantity++;
